@@ -13,7 +13,6 @@
   import LoginModal from './components/LoginModal.vue'
   import InfoSection from './components/InfoSection.vue'
   import FooterSection from './components/FooterSection.vue'
-
   import HomePage from './components/HomePage.vue'
 
   
@@ -24,7 +23,6 @@
       LoginModal,
 
       HomePage,
-      
       InfoSection,
       FooterSection,
     },
