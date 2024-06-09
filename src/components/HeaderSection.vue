@@ -2,8 +2,8 @@
   <header class="header_section">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg custom_nav-container">
-        <a class="navbar-brand" href="index.html">
-          <img src="@/assets/web(1) - Kopie.png" alt="" />
+        <a class="navbar-brand">
+          <img src="@/assets/logo_ohneHintergrund.png" alt="" />
           <span>Web Pioneers</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,23 +12,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link"><router-link to='/'>Home</router-link></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#/about">About</a>
+              <a class="nav-link"><router-link to='/about'>About</router-link> </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="work.html">Work</a>
+              <a class="nav-link"><router-link to='/work'>Work</router-link></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="category.html">Category</a>
+              <a class="nav-link"><router-link to='/category'>Category</router-link></a>
             </li>
           </ul>
           <div class="user_option">
             <button class="login-button" @click="openLoginModal">Login</button>
-            <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-              <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"></button>
-            </form>
           </div>
         </div>
         <div>
@@ -75,6 +72,11 @@ export default {
   background-color: #726FB2;
 }
 
+/* Aktuelle Seite wird im Navbar angesprochen*/
+.active{
+  color: white;
+}
+
 .hero_area {
   height: calc(100vh - 30px);
   background: -webkit-gradient(linear, left top, right top, color-stop(55%, #1a2e35), color-stop(55%, #1cbbb4));
@@ -100,8 +102,13 @@ export default {
 }
 
 .header_section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Stellt sicher, dass die Navbar über dem Inhalt liegt */
   overflow-x: hidden;
-  background-color: #1a2e35;
+  background-color: #B4B4F8;
 }
 
 .header_section .container-fluid {
@@ -298,4 +305,11 @@ a:focus {
   -webkit-transform: rotate(-45deg) translate(8px, -8px);
           transform: rotate(-45deg) translate(8px, -8px);
 }
+
+.navbar-brand img {
+  width: auto;
+  height: 60px; /* Hier kannst du die Höhe des Logos anpassen */
+  margin-right: 10px;
+}
+
 </style>

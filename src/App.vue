@@ -2,7 +2,9 @@
     <div id="app">
       <HeaderSection @open-login-modal="showLoginModal = true"/>
       <LoginModal :isVisible="showLoginModal" @close-modal="showLoginModal = false" />
-      <HomePage/>
+      
+      <router-view> </router-view>
+      
       <InfoSection/>
       <FooterSection/>
     </div>
@@ -13,7 +15,6 @@
   import LoginModal from './components/LoginModal.vue'
   import InfoSection from './components/InfoSection.vue'
   import FooterSection from './components/FooterSection.vue'
-  import HomePage from './components/HomePage.vue'
 
   
   export default {
@@ -21,8 +22,6 @@
     components: {
       HeaderSection,
       LoginModal,
-
-      HomePage,
       InfoSection,
       FooterSection,
     },
@@ -83,6 +82,5 @@
   font-weight: bold;
   text-transform: uppercase;
 }
-
   </style>
   

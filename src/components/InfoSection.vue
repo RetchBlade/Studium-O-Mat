@@ -22,18 +22,18 @@
                 <div class="info_link-box">
                   <h5>Useful Link</h5>
                   <ul>
-                    <li :class="{ 'active': currentTab === 'home' }">
-                      <a @click="changeTab('home')" href="#home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li :class="{ 'active': currentTab === 'about' }">
-                      <a @click="changeTab('about')" href="#about">About</a>
-                    </li>
-                    <li :class="{ 'active': currentTab === 'work' }">
-                      <a @click="changeTab('work')" href="#work">Work</a>
-                    </li>
-                    <li :class="{ 'active': currentTab === 'category' }">
-                      <a @click="changeTab('category')" href="#category">Category</a>
-                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link"><router-link to='/'>Home</router-link></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link"><router-link to='/about'>About</router-link> </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link"><router-link to='/work'>Work</router-link></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link"><router-link to='/category'>Category</router-link></a>
+                      </li>
                   </ul>
                 </div>
               </div>
@@ -107,7 +107,7 @@
     data() {
       return {
         companyName: 'Web Pioneers',
-        logoImage: require('@/assets/logo.png'),
+        logoImage: require('@/assets/logo_ohneHintergrund.png'),
         officeContent: 'Readable content of a page when looking at its layoutreadable content of a page when looking at its layout',
         informationContent: 'Readable content of a page when looking at its layoutreadable content of a page when looking at its layout',
         email: 'demo@gmail.com',
@@ -116,9 +116,7 @@
       };
     },
     methods: {
-      changeTab(tab) {
-        this.currentTab = tab;
-      }
+     
     }
   };
   </script>
@@ -126,7 +124,7 @@
   <style scoped>
       .info_section {
   position: relative;
-  background-color: #1a2e35;
+  background-color: #B4B4F8;
   color: #ffffff;
 }
 
@@ -276,5 +274,24 @@
   max-width: 30px;
   max-height: 30px;
 }
+
+.info_top .info_logo {
+  display: flex;
+  align-items: center; /* Zentriert die Elemente vertikal */
+}
+
+.info_top .info_logo img {
+  width: auto;
+  height: auto;
+  max-width: 100px; /* Maximal zulässige Breite für das Logo */
+  margin-right: 10px; /* Abstand zwischen Logo und Text */
+}
+
+.info_top .info_logo span {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 24px; /* Hier kannst du die Schriftgröße anpassen */
+}
+
   </style>
   
