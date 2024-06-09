@@ -32,6 +32,6 @@
   </script>
   
   <style scoped>
-  /* Burada stil tanımlamalarını yapabilirsiniz */
+  
   </style>
   
