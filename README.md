@@ -5,9 +5,17 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Frontend starten
 ```
 npm run serve
+```
+
+### Backend starten
+```
+zuerst module installieren
+    npm install jsonwebtoken bcrypt cors mongoose
+starten des backend mit:
+    node server.js
 ```
 
 ### Compiles and minifies for production

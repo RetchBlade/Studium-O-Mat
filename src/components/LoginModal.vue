@@ -93,27 +93,63 @@ export default {
     return {
       username: '',
       password: '',
-      confirmPassword: '', // Neues Datenattribut für das Passwort bestätigen
+      confirmPassword: '',
       rememberMe: false,
-      isRegistering: false, // Neues Datenattribut für die Zustandsüberwachung (Login/Registrieren)
-      motionActive: false // Neues Datenattribut für die Bewegung des Buttons
+      isRegistering: false,
+      motionActive: false
     };
   },
   methods: {
     closeModal() {
       this.$emit('close-modal');
     },
-    login() {
-      console.log('Logging in:', this.username, this.password);
-      this.closeModal();
-    },
-    register() {
+    async login() {
+  try {
+    const response = await fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: this.username, password: this.password })
+    });
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      alert(errorMessage);
+      return;
+    }
+
+    const data = await response.json();
+    console.log('Login erfolgreich', data);
+    this.closeModal();
+  } catch (error) {
+    console.error('Fehler beim Login:', error);
+  }
+},
+
+    async register() {
       if (this.password !== this.confirmPassword) {
         alert('Passwörter stimmen nicht überein.');
         return;
       }
-      console.log('Registering:', this.username, this.password);
-      this.closeModal();
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: this.username, password: this.password })
+        });
+        const data = await response.json();
+        if (response.ok) {
+          console.log('Registrierung erfolgreich', data);
+          // Nach erfolgreicher Registrierung zum Login wechseln
+          this.isRegistering = false;
+          this.username = '';
+          this.password = '';
+          this.confirmPassword = '';
+        } else {
+          alert(data.message);
+        }
+      } catch (error) {
+        console.error('Fehler bei der Registrierung:', error);
+      }
     },
     showRegister() {
       this.isRegistering = true;
@@ -121,10 +157,10 @@ export default {
     showLogin() {
       this.isRegistering = false;
     },
-    startMotion() { // Neue Methode für die Startbewegung
+    startMotion() {
       this.motionActive = true;
     },
-    endMotion() { // Neue Methode für das Beenden der Bewegung
+    endMotion() {
       this.motionActive = false;
     }
   }
