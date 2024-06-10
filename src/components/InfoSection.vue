@@ -26,13 +26,13 @@
                     <a class="nav-link"><router-link to='/'>Home</router-link></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><router-link to='/about'>Über uns</router-link> </a>
+                    <a class="nav-link"><router-link to='/about'>About</router-link> </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><router-link to='/work'>Arbeit</router-link></a>
+                    <a class="nav-link"><router-link to='/work'>Work</router-link></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><router-link to='/category'>Categorien</router-link></a>
+                    <a class="nav-link"><router-link to='/category'>Category</router-link></a>
                   </li>
                 </ul>
               </div>
@@ -46,7 +46,7 @@
                 <h5>Newsletter</h5>
                 <form action="">
                   <input type="email" placeholder="Email">
-                  <button>Abonnieren</button>
+                  <button>Subscribe</button>
                 </form>
               </div>
             </div>
@@ -64,8 +64,6 @@
                     </div>
                     <div class="detail-box">
                       <h6>Location</h6>
-                      <h6>{{ Location }}</h6>
-
                     </div>
                   </a>
                 </div>
@@ -107,10 +105,9 @@ export default {
       companyName: 'Web Pioneers',
       logoImage: require('@/assets/logo_ohneHintergrund.png'),
       informationContent: 'Readable content of a page when looking at its layoutreadable content of a page when looking at its layout',
-      email: 'Web-Pioneers@gmail.com',
-      phoneNumber: 'Call +15 11111111',
-      currentTab: 'Home',
-      Location: 'Bochum'
+      email: 'demo@gmail.com',
+      phoneNumber: 'Call +01 1234567890',
+      currentTab: 'home'
     };
   },
   methods: {
@@ -120,6 +117,12 @@ export default {
 </script>
 
 <style scoped>
+
+.info_section {
+  position: relative;
+  background-color: #34396E;
+  color: #ffffff;
+
 
     .info_section {
 position: relative;

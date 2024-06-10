@@ -22,6 +22,9 @@
                 <div class="detail-box">
                   <h1><br>Dein Studienweg beginnt hier!<br></h1>
                   <p>Finde den Studiengang, der zu dir passt.</p>
+                </div>
+                <div class="btn-container">
+                  <a href="" class="btn-1">Zum Studienwahltest</a>
                   <div class="btn-box">
                     <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
                   </div>
@@ -42,6 +45,9 @@
                 <div class="detail-box">
                   <h1><br>Welches Studium passt zu mir?<br></h1>
                   <p>Um das passende Studium für sich zu finden, ist es wichtig, zunächst Ihre Interessen und Leidenschaften zu erkunden. Welche Themen faszinieren Sie? Welche Aktivitäten machen Ihnen Spaß? Indem Sie sich selbst diese Fragen stellen, können Sie eine grundlegende Richtung für Ihre Studienwahl festlegen.</p>
+                </div>
+                <div class="btn-container">
+                  <a href="" class="btn-1">Zum Studienwahltest</a>
                   <div class="btn-box">
                     <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
                   </div>
@@ -62,6 +68,10 @@
                 <div class="detail-box">
                   <h1><br>Erkennen Sie Ihre Fähigkeiten und Stärken<br></h1>
                   <p>Jeder hat unterschiedliche Talente. Das Erkennen Ihrer eigenen Fähigkeiten und Stärken wird Ihnen helfen zu verstehen, welche Karriere zu Ihnen passt. In welchen Bereichen sind Sie gut? Welche Fähigkeiten besitzen Sie? Indem Sie diese Fragen beantworten, können Sie eine solide Grundlage für die richtige Karrierewahl schaffen.</p>
+                </div>
+                <div class="btn-container">
+                  <a href="" class="btn-1">Zum Studienwahltest</a>
+
                   <div class="btn-box">
                     <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
                   </div>
@@ -95,6 +105,7 @@ display: flex;
 align-items: center;
 position: relative;
 height: 600px;
+padding: 20px 0; /* Add padding to ensure the section has space */
 
 }
 
@@ -106,6 +117,13 @@ align-items: center;
 .slider_section .row > div {
 position: unset;
 }
+
+.slider_section .detail-box {
+color: #34396E;
+margin-top: 70px;
+min-height: 400px; /* Mindesthöhe statt feste Höhe */
+flex-direction: column;
+justify-content: space-between}
 
 .slider_section .detail-box h1 {
 color: #34396E;
@@ -126,6 +144,18 @@ flex-wrap: wrap;
 margin: 45px -5px 0 -5px;
 margin-top: 90px;
 
+
+}
+
+.slider_section .carousel_btn-container {
+  width: 120px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center; /* Änderung hier */
+  left: 50%; /* Zentriert die Buttons horizontal */
+  transform: translateX(-50%);
+  z-index: 999;
 }
 
 .slider_section .detail-box .btn-box a {
@@ -136,7 +166,8 @@ margin: 20px;
 
 }
 
-.slider_section .detail-box .btn-box .btn-1 {
+
+.slider_section .btn-container .btn-1 {
 display: inline-block;
 padding: 10px 0;
 background-color: #34396E;
@@ -144,25 +175,21 @@ color: #ffffff;
 transition: all 0.3s;
 border: 1px solid transparent;
 border-radius: 0;
+
 }
 
-.slider_section .detail-box .btn-box .btn-1:hover {
+.slider_section .btn-container .btn-1:hover {
 background-color: transparent;
 border-color: #34396E;
 color: #34396E;
 }
 
 
-.slider_section .detail-box .btn-box .btn-2:hover {
-background-color: transparent;
-border-color: #ffffff;
-color: #ffffff;
-}
+
 
 .slider_section .img-container .img-box img {
 max-height: fit-content;
-  width: 800px;
-}
+width: 100%; /* Bild passt sich dem Container an */}
 
 .slider_section #carouselExampleIndicators {
 position: unset;
@@ -175,7 +202,7 @@ position: absolute;
 bottom: 0;
 display: flex;
 justify-content: center; /* Änderung hier */
-left: 15%;
+left: 50%; /* Zentriert die Buttons horizontal */
 transform: translateX(-50%);
 z-index: 999;
 }
