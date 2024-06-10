@@ -138,14 +138,6 @@ color: #595d85;
 margin-top: 40px;
 }
 
-.slider_section .detail-box .btn-box {
-display: flex;
-flex-wrap: wrap;
-margin: 45px -5px 0 -5px;
-margin-top: 90px;
-
-
-}
 
 .slider_section .carousel_btn-container {
   width: 120px;

@@ -122,7 +122,7 @@ export default {
   position: relative;
   background-color: #34396E;
   color: #ffffff;
-
+}
 
     .info_section {
 position: relative;
