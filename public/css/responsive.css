@@ -62,11 +62,7 @@
   }
 
   .slider_section .detail-box {
-    margin-bottom: 75px;
-  }
-
-  .slider_section .detail-box .btn-box {
-    justify-content: center;
+    margin-top: 700px;
   }
 
 
@@ -74,15 +70,22 @@
     padding: 0;
   }
 
+  .slider_section .detail-box .btn-box {
+    justify-content: center;
+    margin-bottom: 60px;
+
+  }
+
   .slider_section .img-container .img-box {
 
     padding: 45px 0;
-    background-color: #1cbbb4;
+    background-color: #34396E;
   }
 
   .experience_section .img-box {
 
-    margin-bottom: 45px;
+    margin-top: 600px;
+    margin-bottom: 100px;
 
   }
 
@@ -92,7 +95,7 @@
 
   .client_section .detail-box {
     margin: 25px;
-    padding: 45px 25px 35px 25px;
+    padding: 40px 25px 35px 20px;
   }
 
   .client_section .carousel-control-prev,
@@ -123,8 +126,6 @@
   .info_section .info_contact .link-box {
     margin: 0;
   }
-
-
 
 }
 
@@ -159,13 +160,13 @@
   }
 
   .slider_section ol.carousel-indicators {
-    right: 0;
+    right: 10;
   }
 
   .client_section .carousel-control-prev,
   .client_section .carousel-control-next {
 
-    top: 95%;
+    top: 20%;
 
   }
 
@@ -182,10 +183,23 @@
   }
 }
 
-@media (max-width: 360px) {}
+@media (max-width: 360px) {
+.info_section{
+  height:100%;
+
+}
+
+
+
+}
 
 @media (min-width: 1200px) {
   .container {
     max-width: 1170px;
   }
 }
+
+.info_form {
+  margin-bottom: 10%;
+}
+

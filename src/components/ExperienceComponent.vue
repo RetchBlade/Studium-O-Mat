@@ -15,13 +15,16 @@
               </h2>
             </div>
             <p>
-              Studium O-Mat ist dein verlässlicher Partner bei der Studienwahl und eine Partnerwebseite der Hochschule Bochum. Mit unserem innovativen Online-Test kannst du deine Interessen und Stärken analysieren und die Studiengänge finden, die perfekt zu dir passen. 
-              Darüber hinaus bieten wir detaillierte Informationen zu den Studiengängen der Hochschule Bochum. Wir unterstützen dich dabei, die richtige Entscheidung für deine akademische und berufliche Zukunft zu treffen. Starte noch heute und entdecke die vielfältigen Möglichkeiten an der Hochschule Bochum. 
-              Lass uns gemeinsam deinen Weg gestalten!
+              Der Studium O-Mat: Dein verlässlicher Begleiter zur richtigen Studienwahl Studium O-Mat, die Partnerwebseite der Hochschule Bochum, unterstützt dich dabei, den perfekten Studiengang zu finden.
+               Mit unserem innovativen Online-Test kannst du deine Interessen und Stärken analysieren und die Studiengänge entdecken, die ideal zu dir passen.
+                Zusätzlich bieten wir umfassende Informationen zu den Studiengängen der Hochschule Bochum.
+                Wir helfen dir, die beste Entscheidung für deine akademische und berufliche Zukunft zu treffen.
+                 Beginne noch heute und entdecke die vielfältigen Möglichkeiten an der Hochschule Bochum. Lass uns gemeinsam deinen Weg gestalten und deine Träume verwirklichen.
+
             </p>
             <div class="btn-box">
               <a href="" class="btn-1">Read More</a>
-              <a href="" class="btn-2">Hire</a>
+              <a href="" class="btn-2">Irgendwas</a>
             </div>
           </div>
         </div>
@@ -85,7 +88,7 @@ color: #34396E;
 .experience_section .detail-box .btn-box .btn-2 {
 display: inline-block;
 padding: 10px 0;
-background-color: #1a2e35;
+background-color: #34396E;
 color: #ffffff;
 -webkit-transition: all 0.3s;
 transition: all 0.3s;
