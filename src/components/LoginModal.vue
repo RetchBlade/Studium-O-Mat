@@ -9,17 +9,17 @@
               class="img-fluid" alt="Sample image">
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <form @submit.prevent="login">
+            <form v-if="!isRegistering" @submit.prevent="login">
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <label class="form-label">Email Addresse</label>
+                <label class="form-label">Email Adresse</label>
                 <input type="email" v-model="username" class="form-control form-control-lg"
-                  placeholder="Enter Adresse eingeben" required />
+                  placeholder="Adresse eingeben" required />
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-3">               
-                 <label class="form-label">Passwort</label>
+                <label class="form-label">Passwort</label>
                 <input type="password" v-model="password" class="form-control form-control-lg"
                   placeholder="Passwort" required />
               </div>
@@ -29,11 +29,10 @@
                 <div class="form-check mb-0">
                   <input class="form-check-input me-2" type="checkbox" v-model="rememberMe" />
                   <label class="form-check-label">
-                    Benutzerdatenn merken
+                    Benutzerdaten merken
                   </label>
                 </div>
                 <a href="#!" class="text-body">Passwort vergessen?</a>
-
               </div>
 
               <div class="text-center text-lg-start mt-4 pt-2">
@@ -43,9 +42,43 @@
                   <div class="motion-line" v-show="motionActive"></div>
                 </button>
                 <p class="small fw-bold mt-2 pt-1 mb-0">Noch keinen Account? <a href="#!"
-                    class="link-danger">Registrieren</a></p>
+                    class="link-danger" @click.prevent="showRegister">Registrieren</a></p>
               </div>
             </form>
+
+            <form v-else @submit.prevent="register">
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <label class="form-label">Email Adresse</label>
+                <input type="email" v-model="username" class="form-control form-control-lg"
+                  placeholder="Adresse eingeben" required />
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-3">               
+                <label class="form-label">Passwort</label>
+                <input type="password" v-model="password" class="form-control form-control-lg"
+                  placeholder="Passwort" required />
+              </div>
+
+              <!-- Confirm Password input -->
+              <div class="form-outline mb-3">               
+                <label class="form-label">Passwort bestätigen</label>
+                <input type="password" v-model="confirmPassword" class="form-control form-control-lg"
+                  placeholder="Passwort bestätigen" required />
+              </div>
+
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="submit" class="btn btn-primary btn-lg"
+                  style="width: 200px; padding-left: 2.5rem; padding-right: 2.5rem;"
+                  @mouseover="startMotion" @mouseleave="endMotion">Registrieren
+                  <div class="motion-line" v-show="motionActive"></div>
+                </button>
+                <p class="small fw-bold mt-2 pt-1 mb-0">Bereits einen Account? <a href="#!"
+                    class="link-danger" @click.prevent="showLogin">Login</a></p>
+              </div>
+            </form>
+
           </div>
         </div>
       </div>
@@ -60,7 +93,9 @@ export default {
     return {
       username: '',
       password: '',
+      confirmPassword: '', // Neues Datenattribut für das Passwort bestätigen
       rememberMe: false,
+      isRegistering: false, // Neues Datenattribut für die Zustandsüberwachung (Login/Registrieren)
       motionActive: false // Neues Datenattribut für die Bewegung des Buttons
     };
   },
@@ -72,6 +107,20 @@ export default {
       console.log('Logging in:', this.username, this.password);
       this.closeModal();
     },
+    register() {
+      if (this.password !== this.confirmPassword) {
+        alert('Passwörter stimmen nicht überein.');
+        return;
+      }
+      console.log('Registering:', this.username, this.password);
+      this.closeModal();
+    },
+    showRegister() {
+      this.isRegistering = true;
+    },
+    showLogin() {
+      this.isRegistering = false;
+    },
     startMotion() { // Neue Methode für die Startbewegung
       this.motionActive = true;
     },
@@ -81,8 +130,6 @@ export default {
   }
 };
 </script>
-
-
 
 <style scoped>
 .modal {
@@ -99,7 +146,7 @@ export default {
 }
 
 .modal-content {
-  background-color: #e5e5f8 ;
+  background-color: #e5e5f8;
   padding: 2rem;
   border-radius: 10px;
   width: 1000px; 
@@ -109,14 +156,14 @@ export default {
   position: relative;
   font-size: 0.9rem;
   margin-left: 10px;
-
 }
-.text-body{
+
+.text-body {
   margin-left: 50px;
   margin-right: 10px;
 }
 
-.small{
+.small {
   margin-left: 20px;
 }
 
@@ -135,19 +182,16 @@ button {
   padding: 0.5rem 0.5rem;
   cursor: pointer;
   margin-left: 20px;
-
 }
 
 button:hover {
   background-color: #726FB2;
 }
 
-
-
-
 .form-outline {
   margin-bottom: 1.5rem;
-  margin-top: 2.5rem;}
+  margin-top: 2.5rem;
+}
 
 .form-control {
   border-radius: 20px;
@@ -160,7 +204,6 @@ button:hover {
   margin-left: 1.5rem;
   font-size: 0.9rem;
   color: #6c757d;
-
 }
 
 .motion-line {
