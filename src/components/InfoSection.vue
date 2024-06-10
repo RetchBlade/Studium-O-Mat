@@ -121,6 +121,22 @@ export default {
 
 <style scoped>
 
+    .info_section {
+position: relative;
+background-color: #34396E;
+color: #ffffff;
+}
+
+.info_section .heading_container {
+margin-bottom: 45px;
+}
+
+.info_section h5 {
+text-transform: uppercase;
+font-weight: bold;
+margin-bottom: 20px;
+
+}
 
 .info_section .info_top {
   display: flex;
