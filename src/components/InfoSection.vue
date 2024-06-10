@@ -126,7 +126,6 @@ export default {
 position: relative;
 background-color: #34396E;
 color: #ffffff;
-height: 35rem;
 }
 
 .info_section .heading_container {
