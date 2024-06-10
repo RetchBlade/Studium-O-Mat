@@ -24,7 +24,6 @@
                   <p>Finde den Studiengang, der zu dir passt.</p>
                 </div>
                 <div class="btn-container">
-                  <a href="" class="btn-1">Zum Studienwahltest</a>
                   <div class="btn-box">
                     <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
                   </div>
@@ -47,7 +46,6 @@
                   <p>Um das passende Studium für sich zu finden, ist es wichtig, zunächst Ihre Interessen und Leidenschaften zu erkunden. Welche Themen faszinieren Sie? Welche Aktivitäten machen Ihnen Spaß? Indem Sie sich selbst diese Fragen stellen, können Sie eine grundlegende Richtung für Ihre Studienwahl festlegen.</p>
                 </div>
                 <div class="btn-container">
-                  <a href="" class="btn-1">Zum Studienwahltest</a>
                   <div class="btn-box">
                     <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
                   </div>
@@ -70,8 +68,6 @@
                   <p>Jeder hat unterschiedliche Talente. Das Erkennen Ihrer eigenen Fähigkeiten und Stärken wird Ihnen helfen zu verstehen, welche Karriere zu Ihnen passt. In welchen Bereichen sind Sie gut? Welche Fähigkeiten besitzen Sie? Indem Sie diese Fragen beantworten, können Sie eine solide Grundlage für die richtige Karrierewahl schaffen.</p>
                 </div>
                 <div class="btn-container">
-                  <a href="" class="btn-1">Zum Studienwahltest</a>
-
                   <div class="btn-box">
                     <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
                   </div>
