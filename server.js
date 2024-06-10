@@ -1,4 +1,5 @@
 // server.js
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -13,16 +14,10 @@ mongoose.connect('mongodb+srv://WebPioneers:studiomat@livable.joewjmc.mongodb.ne
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+// Importiere die Quiz-Routes
+const quizRoutes = require('./routes/quiz');
+app.use('/api/quiz', quizRoutes);
+
 app.listen(5000, () => {
   console.log('Server running on port 5000');
 });
-
-// server.js
-const authRoutes = require('./routes/auth');
-
-app.use('/api/auth', authRoutes);
-
-// server.js
-app.use(cors({ origin: 'http://localhost:8080' })); // Vue Dev Server
-
-
