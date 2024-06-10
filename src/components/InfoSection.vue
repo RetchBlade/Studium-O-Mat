@@ -120,11 +120,7 @@ export default {
 </script>
 
 <style scoped>
-.info_section {
-  position: relative;
-  background-color: #34396E;
-  color: #ffffff;
-}
+
 
 .info_section .info_top {
   display: flex;
