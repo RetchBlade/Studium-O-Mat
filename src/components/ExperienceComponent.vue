@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-5">
           <div class="img-box">
-            <img src="@/assets/experience-img.jpg" alt="">
+            <img src="@/assets/experience-img.png" alt="">
           </div>
         </div>
         <div class="col-md-7">

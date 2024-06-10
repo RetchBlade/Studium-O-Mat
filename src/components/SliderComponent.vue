@@ -25,13 +25,13 @@
                 </div>
                 <div class="btn-container">
                   <div class="btn-box">
-                    <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
+                    <a class="btn-1"><router-link to='/quiz' class="study-test-btn">Zum Studienwahltest</router-link></a>
                   </div>
                 </div>
               </div>
               <div class="offset-md-1 col-md-4 img-container">
                 <div class="img-box">
-                  <img src="@/assets/studenten.jpg" alt="" />
+                  <img src="@/assets/studenten.png" alt="" />
                 </div>
               </div>
             </div>
@@ -47,13 +47,13 @@
                 </div>
                 <div class="btn-container">
                   <div class="btn-box">
-                    <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
+                    <a class="btn-1"><router-link to='/quiz' class="study-test-btn"> Zum Studienwahltest</router-link></a>
                   </div>
                 </div>
               </div>
               <div class="offset-md-1 col-md-4 img-container">
                 <div class="img-box">
-                  <img src="@/assets/poster-studium-definition.jpg" alt=""/>
+                  <img src="@/assets/poster-studium-definition.png" alt=""/>
                 </div>
               </div>
             </div>
@@ -69,13 +69,12 @@
                 </div>
                 <div class="btn-container">
                   <div class="btn-box">
-                    <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
-                  </div>
+                    <a class="btn-1"><router-link to='/quiz' class="study-test-btn">Zum Studienwahltest</router-link></a>                  </div>
                 </div>
               </div>
               <div class="offset-md-1 col-md-4 img-container">
                 <div class="img-box">
-                  <img src="@/assets/2822114-studenten-sehen-gelangweilt-beim-lernen-handgezeichneten-stil-design-illustrationen-kostenlos-vektor.jpg" alt="">
+                  <img src="@/assets/2822114-studenten-sehen-gelangweilt-beim-lernen-handgezeichneten-stil-design-illustrationen-kostenlos-vektor.png" alt="">
                 </div>
               </div>
             </div>
@@ -130,8 +129,9 @@ margin-top: 70px;
 }
 
 .slider_section .detail-box p {
-color: #595d85;
+color: #8a8ca1;
 margin-top: 40px;
+font-size: 22px;
 }
 
 
@@ -157,22 +157,30 @@ margin: 20px;
 
 .slider_section .btn-container .btn-1 {
 display: inline-block;
-padding: 10px 0;
+padding: 12px 12px  12px 12px;
 background-color: #34396E;
 color: #ffffff;
 transition: all 0.3s;
 border: 1px solid transparent;
-border-radius: 0;
+border-radius: 30px;
+
 
 }
 
 .slider_section .btn-container .btn-1:hover {
-background-color: transparent;
+background-color: #726FB2 ;
 border-color: #34396E;
 color: #34396E;
 }
 
+.study-test-btn {
+  color: #ffffff !important; 
+  text-decoration: none; 
+}
 
+.study-test-btn:hover {
+  color: #34396E !important; 
+}
 
 
 .slider_section .img-container .img-box img {
@@ -247,4 +255,6 @@ transition: background-color 0.3s ease;
 .slider_section ol.carousel-indicators li.active {
 background-color: #726FB2;
 }
+
+
 </style>

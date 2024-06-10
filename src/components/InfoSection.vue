@@ -46,7 +46,7 @@
                 <h5>Newsletter</h5>
                 <form action="">
                   <input type="email" placeholder="Email">
-                  <button>Subscribe</button>
+                  <button>Abonnieren</button>
                 </form>
               </div>
             </div>
@@ -64,6 +64,8 @@
                     </div>
                     <div class="detail-box">
                       <h6>Location</h6>
+                      <h6>{{ Location }}</h6>
+
                     </div>
                   </a>
                 </div>
@@ -105,9 +107,10 @@ export default {
       companyName: 'Web Pioneers',
       logoImage: require('@/assets/logo_ohneHintergrund.png'),
       informationContent: 'Readable content of a page when looking at its layoutreadable content of a page when looking at its layout',
-      email: 'demo@gmail.com',
-      phoneNumber: 'Call +01 1234567890',
-      currentTab: 'home'
+      email: 'Web-Pioneers@gmail.com',
+      phoneNumber: 'Call +015 1111111111',
+      currentTab: 'Home',
+      Location: 'Bochum'
     };
   },
   methods: {
