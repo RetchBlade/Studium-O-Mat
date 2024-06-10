@@ -25,6 +25,9 @@
                 </div>
                 <div class="btn-container">
                   <a href="" class="btn-1">Zum Studienwahltest</a>
+                  <div class="btn-box">
+                    <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
+                  </div>
                 </div>
               </div>
               <div class="offset-md-1 col-md-4 img-container">
@@ -45,6 +48,9 @@
                 </div>
                 <div class="btn-container">
                   <a href="" class="btn-1">Zum Studienwahltest</a>
+                  <div class="btn-box">
+                    <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
+                  </div>
                 </div>
               </div>
               <div class="offset-md-1 col-md-4 img-container">
@@ -65,6 +71,10 @@
                 </div>
                 <div class="btn-container">
                   <a href="" class="btn-1">Zum Studienwahltest</a>
+
+                  <div class="btn-box">
+                    <a class="btn-1"><router-link to='/quiz'>Zum Studienwahltest</router-link></a>
+                  </div>
                 </div>
               </div>
               <div class="offset-md-1 col-md-4 img-container">
