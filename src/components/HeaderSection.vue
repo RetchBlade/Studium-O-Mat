@@ -4,9 +4,10 @@
       <nav class="navbar navbar-expand-lg custom_nav-container">
         <a class="navbar-brand">
           <img src="@/assets/logo_ohneHintergrund.png" alt="" />
-          <span>Web Pioneers</span>
+          <span>Studium-O-Mat</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -25,7 +26,11 @@
             </li>
           </ul>
           <div class="user_option">
-            <button class="login-button" @click="openLoginModal">Login</button>
+            <button class="login-button" @mouseover="startMotion" @mouseleave="endMotion" @click="openLoginModal">
+  <span class="login-text">Login</span>
+  <div class="motion-line" v-show="motionActive"></div>
+</button>
+
           </div>
         </div>
         <div>
@@ -108,7 +113,7 @@ export default {
   width: 100%;
   z-index: 9999; /* Stellt sicher, dass die Navbar über dem Inhalt liegt */
   overflow-x: hidden;
-  background-color: #B4B4F8;
+  background-color: #34396E;
 }
 
 .header_section .container-fluid {
@@ -233,16 +238,44 @@ a:focus {
 
 .lg_toggl-btn:focus {
   outline: none;
+  
+}.login-button {
+  background-color: #726FB2;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out;
 }
 
-.login_btn-container {
-  padding-top: 30px;
+.login-button:hover {
+  color: #4d4787; /* Ändere die Textfarbe beim Hover-Effekt */
 }
 
-.login_btn-container a {
-  color: #1cbbb4;
-  text-transform: uppercase;
+.login-text {
+  position: relative;
+  z-index: 1; /* Stelle sicher, dass der Text über dem Linien-Element liegt */
 }
+
+.motion-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #4d4787; /* Farbe des Linien-Elements */
+  transform: scaleX(0); /* Initial versteckt */
+  transition: transform 0.3s ease-in-out;
+}
+
+.motionActive {
+  transform: scaleX(1); /* Linie sichtbar machen */
+}
+
+
 
 
 
