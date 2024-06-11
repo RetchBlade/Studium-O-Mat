@@ -3,10 +3,10 @@ const router = express.Router();
 const Question = require('../models/Question');
 
 // GET-Anfrage zum Abrufen aller Fragen
-router.get('/questions', async (req, res) => {
+router.get('/fragen', async (req, res) => {
   try {
-    // Alle Fragen abrufen, nur das Feld 'frage' zurückgeben, _id ausschließen
-    const questions = await Question.find({}, { frage: 1, _id: 0 });
+    // Alle Fragen abrufen
+    const questions = await Question.find({});
     // Antwort mit den abgerufenen Fragen senden
     res.json(questions);
   } catch (error) {

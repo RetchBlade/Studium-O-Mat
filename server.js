@@ -16,6 +16,11 @@ app.listen(5000, () => {
    console.log('Server läuft auf Port 5000');
 });
 
+
+// CORS-Einstellungen für den Zugriff von http://localhost:8080
+app.use(cors({ origin: 'http://localhost:8080' }));
+
+
 // Quiz-Routen importieren
 const quizRoutes = require('./Backend/routes/quiz');
 app.use('/api/quiz', quizRoutes);
@@ -23,6 +28,3 @@ app.use('/api/quiz', quizRoutes);
 // Auth-Routen importieren
 const authRoutes = require('./Backend/routes/auth');
 app.use('/api/auth', authRoutes);
-
-// CORS-Einstellungen für den Zugriff von http://localhost:8080
-app.use(cors({ origin: 'http://localhost:8080' }));

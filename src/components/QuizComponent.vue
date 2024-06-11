@@ -28,6 +28,7 @@
 
 <script>
 export default {
+  
   data() {
     return {
       // Fragenarray
@@ -47,7 +48,7 @@ export default {
     async loadQuestions() {
       try {
         // Fragen von der API abrufen
-        const response = await fetch('http://localhost:5000/api/quiz/questions');
+        const response = await fetch('http://localhost:5000/api/quiz/fragen');
         // Antwort in JSON umwandeln
         const data = await response.json();
         // Fragen im Datenarray speichern

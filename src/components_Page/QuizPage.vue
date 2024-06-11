@@ -6,21 +6,26 @@
       <!-- Ein Start-Button, der das Quiz startet, wenn darauf geklickt wird -->
       <button class="start-button" @click="startQuiz">Starten</button>
     </div>
+    <div>
     <!-- Die QuizComponent wird nur gerendert, wenn das Quiz gestartet wurde -->
-    <QuizComponent v-if="quizStarted"/>
+      <QuizComponent  v-if="quizStarted"/>
+    </div>
+      <QuizSlider  v-if="quizStarted"/>
   </div>
 </template>
 
 <script>
 // Importiere die QuizComponent
 import QuizComponent from '@/components/QuizComponent.vue';
+import QuizSlider from '@/components/QuizSliderComponent.vue'
 
 export default {
   // Name der Komponente
   name: 'QuizPage',
   // Registriere die QuizComponent als Unterkomponente
   components: {
-    QuizComponent
+    QuizComponent,
+    QuizSlider
   },
   // Datenobjekt für die Komponente
   data() {
@@ -47,10 +52,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.quiz-content {
-  /* Customize quiz content style */
 }
 
 .start-button {
