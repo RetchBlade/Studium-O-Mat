@@ -42,10 +42,6 @@ export default {
 
 <style scoped>
   
-  .container {
-    height:1000px;
-  }
-  
 .experience_section .row {
 -webkit-box-align: center;
     -ms-flex-align: center;
