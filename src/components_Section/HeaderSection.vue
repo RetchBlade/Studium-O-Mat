@@ -20,9 +20,6 @@
             <li class="nav-item">
               <RouterLink to="/studiumOMat" class="nav-link">Studium-O-Mat</RouterLink>
             </li>
-            <li class="nav-item">
-              <RouterLink to="/category" class="nav-link">Kategorien</RouterLink>
-            </li>
           </ul>
           <div class="user_option">
             <button class="login-button" @mouseover="startMotion" @mouseleave="endMotion" @click="openLoginModal">
@@ -56,7 +53,7 @@ export default {
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
-      document.body.classList.toggle('nav-open', this.isMenuOpen); // Menü açıkken sayfa kaydırmasını engelle
+      document.body.classList.toggle('nav-open', this.isMenuOpen); 
     },
     openLoginModal() {
       this.$emit('open-login-modal');

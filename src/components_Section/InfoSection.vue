@@ -34,9 +34,6 @@
                   <li class="nav-item">
                     <a class="nav-link"><router-link to='/studiumOMat'>StudiumOMat</router-link></a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link"><router-link to='/category'>Studiengänge</router-link></a>
-                  </li>
                 </ul>
               </div>
             </div>
