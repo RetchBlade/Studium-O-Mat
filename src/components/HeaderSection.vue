@@ -13,16 +13,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link"><router-link to='/'>Home</router-link></a>
+              <RouterLink to="/" class="nav-link">Home</RouterLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link"><router-link to='/about'>About</router-link> </a>
+              <RouterLink to="/about" class="nav-link">Über uns</RouterLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link"><router-link to='/work'>Work</router-link></a>
+              <RouterLink to="/work" class="nav-link">Arbeit</RouterLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link"><router-link to='/category'>Category</router-link></a>
+              <RouterLink to="/category" class="nav-link">Kategorien</RouterLink>
             </li>
           </ul>
           <div class="user_option">
@@ -250,6 +250,14 @@ a:focus {
   overflow: hidden;
   transition: color 0.3s ease-in-out;
 }
+
+.nav-link {
+
+  color: #ffffff !important; 
+  text-decoration: none; 
+
+}
+
 
 .login-button:hover {
   color: #4d4787; /* Ändere die Textfarbe beim Hover-Effekt */

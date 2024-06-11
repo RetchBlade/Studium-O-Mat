@@ -43,8 +43,9 @@
   <style scoped>
     
 .category_section {
-  background-color: #1cbbb4;
+  background-color: #b7b6d0;
   color: #ffffff;
+  height: 1000px;
   text-align: center;
 }
 

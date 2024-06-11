@@ -29,7 +29,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #34396E;
+  background-color: #dfe0e7;
 }
 
 .footer_section p {
