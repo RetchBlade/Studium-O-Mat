@@ -18,10 +18,10 @@
                       </div>
                       <div class="detail-box">
                         <h5>
-                            Was machen wir ?
+                            Erklärung ?
                         </h5>
                         <h3>
-                          Paid to Freelancers
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, qui molestias? Odit minima, commodi est ad, voluptate a facilis necessitatibus dolore, voluptatum voluptates nemo cumque provident dolor enim perferendis perspiciatis.
                         </h3>
                       </div>
                     </div>
@@ -31,37 +31,11 @@
                       </div>
                       <div class="detail-box">
                         <h5>
-                          2 Million
+                          Weitere Infos
                         </h5>
                         <h3>
-                          Paid Invoices
+                          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi impedit similique porro enim. Beatae, repudiandae nemo laboriosam similique consequatur optio earum, neque expedita omnis excepturi velit minima pariatur odio debitis.
                         </h3>
-                      </div>
-                    </div>
-                    <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      <div class="img-box">
-                        <img src="@/assets/f3.png" alt="">
-                      </div>
-                      <div class="detail-box">
-                        <h5>
-                          700,000
-                        </h5>
-                        <h3>
-                          Worldwide Freelancer
-                        </h3>
-                      </div>
-                    </div>
-                    <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                      <div class="img-box">
-                        <img src="@/assets/f4.png" alt="">
-                      </div>
-                      <div class="detail-box">
-                        <h5>
-                          98%
-                        </h5>
-                        <h3>
-                          Customer <br>
-               </h3>
                       </div>
                     </div>
                   </div>
