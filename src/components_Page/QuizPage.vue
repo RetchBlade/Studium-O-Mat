@@ -6,11 +6,12 @@
       <!-- Ein Start-Button, der das Quiz startet, wenn darauf geklickt wird -->
       <button class="start-button" @click="startQuiz">Starten</button>
     </div>
-    <div>
     <!-- Die QuizComponent wird nur gerendert, wenn das Quiz gestartet wurde -->
-      <QuizComponent  v-if="quizStarted"/>
+    <div v-if="quizStarted" class="quiz-component-container">
+      <QuizComponent />
     </div>
-      <QuizSlider  v-if="quizStarted"/>
+    <!-- Der QuizSlider wird nur gerendert, wenn das Quiz gestartet wurde -->
+      <QuizSlider v-if="quizStarted"/>
   </div>
 </template>
 
@@ -44,7 +45,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .quiz-page {
   background-color: #ffffff;
@@ -52,6 +52,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* Damit die Quiz-Elemente vertikal zentriert sind */
 }
 
 .start-button {
@@ -62,5 +63,9 @@ export default {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.quiz-component-container {
+  margin-top: 100px; /* Verstellbarer Abstand zwischen QuizComponent und QuizSlider */
 }
 </style>

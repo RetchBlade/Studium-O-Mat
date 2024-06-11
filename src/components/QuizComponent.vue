@@ -4,12 +4,7 @@
     <div v-if="questions.length > 0">
       <!-- Frage anzeigen -->
       <h3>{{ questions[currentQuestionIndex].frage }}</h3>
-      <!-- Studiengänge anzeigen -->
-      <ul>
-        <li v-for="(studiengang, index) in questions[currentQuestionIndex].studiengänge" :key="index">
-          {{ studiengang }}
-        </li>
-      </ul>
+      
       <!-- Nächste Frage Schaltfläche -->
       <button @click="loadNextQuestion" :disabled="isLastQuestion">Nächste Frage</button>
     </div>

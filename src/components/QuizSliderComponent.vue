@@ -33,7 +33,7 @@
   };
   </script>
   
-  <style>
+  <style scoped>
   .slider-container {
     display: flex;
     align-items: center;
