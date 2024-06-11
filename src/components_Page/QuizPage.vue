@@ -47,20 +47,32 @@ export default {
 
 <style scoped>
 .quiz-page {
-  background-color: #ffffff;
+  background-color: #e5e5f8;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+
 .start-button {
-  padding: 15px 30px;
   font-size: 18px;
-  background-color: #4CAF50;
+  background-color: #34396E;
+  padding: 2rem 2rem; 
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
+  margin-left: 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px; 
+  height: 70px; 
 }
+
+.start-button:hover {
+  background-color: #726FB2;
+}
+
 </style>
