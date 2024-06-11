@@ -1,15 +1,27 @@
 <template>
   <header class="header_section">
     <div class="container-fluid">
+      <!-- Navigationsleiste -->
       <nav class="navbar navbar-expand-lg custom_nav-container">
+        <!-- Logo und Titel -->
         <a class="navbar-brand">
           <img src="@/assets/logo_ohneHintergrund.png" alt="" />
           <span>Studium-O-Mat</span>
         </a>
+
         <button class="navbar-toggler" type="button" @click="toggleMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div :class="['collapse', 'navbar-collapse', { 'show': isMenuOpen }]" id="navbarSupportedContent">
+
+        <!-- Toggle-Schalter für das Menü -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menüinhalt -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navigationslinks -->
+
           <ul class="navbar-nav">
             <li class="nav-item active">
               <RouterLink to="/" class="nav-link">Home</RouterLink>
@@ -24,6 +36,7 @@
               <RouterLink to="/category" class="nav-link">Kategorien</RouterLink>
             </li>
           </ul>
+          <!-- Benutzeroptionen -->
           <div class="user_option">
             <button class="login-button" @mouseover="startMotion" @mouseleave="endMotion" @click="openLoginModal">
               <span class="login-text">Login</span>
@@ -31,6 +44,7 @@
             </button>
           </div>
         </div>
+        <!-- Menüschaltfläche für mobile Ansicht -->
         <div>
           <div class="custom_menu-btn">
             <button @click="toggleMenu">
@@ -49,6 +63,7 @@
 export default {
   data() {
     return {
+
       isMenuOpen: false,
       motionActive: false,
     };
@@ -56,10 +71,31 @@ export default {
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
-      document.body.classList.toggle('nav-open', this.isMenuOpen); // Menü açıkken sayfa kaydırmasını engelle
+
+      // Selektor für das Navigationsmenü
+      nav: "#navbarSupportedContent",
+      // Selektor für die Menüschaltfläche
+      btn: ".custom_menu-btn"
+    };
+  },
+  mounted() {
+    // Hinzufügen des Click-Event-Listeners für die Menüschaltfläche
+    document.querySelector(this.btn).addEventListener('click', this.toggleMenu);
+  },
+  methods: {
+    // Methode zum Umschalten des Menüs
+    toggleMenu(event) {
+      event.preventDefault();
+      // Menüklasse umschalten
+      document.querySelector(this.nav).classList.toggle("lg_nav-toggle");
+      // Stil der Menüschaltfläche umschalten
+      document.querySelector(this.btn).classList.toggle("menu_btn-style");
+
     },
+    // Methode zum Öffnen des Login-Modals
     openLoginModal() {
       this.$emit('open-login-modal');
+
     },
     startMotion() {
       this.motionActive = true;
@@ -68,8 +104,13 @@ export default {
       this.motionActive = false;
     },
   },
+
+    }
+  }
+
 };
 </script>
+
 
 <style scoped>
 .login-button:hover {

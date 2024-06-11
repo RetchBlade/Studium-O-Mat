@@ -1,32 +1,44 @@
 <template>
+  <!-- Die Hauptdiv der Quiz-Seite -->
   <div class="quiz-page">
+    <!-- Wenn das Quiz noch nicht gestartet wurde, wird dieser Bereich angezeigt -->
     <div v-if="!quizStarted" class="quiz-content">
+      <!-- Ein Start-Button, der das Quiz startet, wenn darauf geklickt wird -->
       <button class="start-button" @click="startQuiz">Starten</button>
     </div>
+    <!-- Die QuizComponent wird nur gerendert, wenn das Quiz gestartet wurde -->
     <QuizComponent v-if="quizStarted"/>
   </div>
 </template>
 
 <script>
+// Importiere die QuizComponent
 import QuizComponent from '@/components/QuizComponent.vue';
 
 export default {
+  // Name der Komponente
   name: 'QuizPage',
+  // Registriere die QuizComponent als Unterkomponente
   components: {
     QuizComponent
   },
+  // Datenobjekt für die Komponente
   data() {
     return {
+      // Variable, um den Status des Quiz zu verfolgen (gestartet oder nicht)
       quizStarted: false
     };
   },
+  // Methoden, um das Verhalten der Komponente zu definieren
   methods: {
+    // Methode, um das Quiz zu starten
     startQuiz() {
-      this.quizStarted = true;
+      this.quizStarted = true; // Setze quizStarted auf true, um anzuzeigen, dass das Quiz gestartet wurde
     }
   }
 }
 </script>
+
 
 <style scoped>
 .quiz-page {

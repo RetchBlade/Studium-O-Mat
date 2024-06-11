@@ -1,30 +1,35 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router';
 
-import HomePage from './components_Page/HomePage.vue'
-import AboutPage from './components_Page/AboutPage.vue'
-import WorkPage from './components_Page/StudiumOMatPage.vue'
-import CategoryPage from './components_Page/CategoryPage.vue'
-import QuizPage from './components_Page/QuizPage.vue'
+import HomePage from './components_Page/HomePage.vue';
+import AboutPage from './components_Page/AboutPage.vue';
+import StudiumOMatPage from './components_Page/StudiumOMatPage.vue';
+import CategoryPage from './components_Page/CategoryPage.vue';
+import QuizPage from './components_Page/QuizPage.vue';
 
-const app = createApp(App)
+// Vue-App erstellen
+const app = createApp(App);
 
+// Routen definieren
 const routes = [
-    {path: '/', component: HomePage},
-    {path: '/about', component: AboutPage},
-    {path: '/work', component: WorkPage},
-    {path: '/category', component: CategoryPage},
-    {path: '/quiz', component: QuizPage},
-    
-]
+    { path: '/', component: HomePage },
+    { path: '/about', component: AboutPage },
+    { path: '/studiumOMat', component: StudiumOMatPage },
+    { path: '/category', component: CategoryPage },
+    { path: '/quiz', component: QuizPage }
+];
 
+// Router erstellen
 const router = createRouter({
     history: createWebHashHistory(),
     routes: routes,
-    linkActiveClass: 'active'
-})
+    linkActiveClass: 'active' // Klasse für aktiven Link in der Navigation
+});
 
-app.use(router)
-app.mount('#app')
+// Router in die Vue-App einbinden
+app.use(router);
+
+// Vue-App an das HTML-Dokument binden
+app.mount('#app');

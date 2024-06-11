@@ -3,10 +3,12 @@
     <div class="info_container layout_padding-top">
       <div class="container">
         <div class="info_top">
+          <!-- Logo und Firmenname -->
           <div class="info_logo">
             <img :src="logoImage" alt="" />
             <span>{{ companyName }}</span>
           </div>
+          <!-- Social Media Links -->
           <div class="social_box">
             <a href="#"><img src="@/assets/fb.png" alt=""></a>
             <a href="#"><img src="@/assets/twitter.png" alt=""></a>
@@ -18,6 +20,7 @@
 
         <div class="info_main">
           <div class="row">
+            <!-- Schnellzugriff-Links -->
             <div class="col-md-3 col-lg-2">
               <div class="info_link-box">
                 <h5>Schnellzugriff</h5>
@@ -29,7 +32,7 @@
                     <a class="nav-link"><router-link to='/about'>About</router-link> </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><router-link to='/work'>Work</router-link></a>
+                    <a class="nav-link"><router-link to='/studiumOMat'>Work</router-link></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"><router-link to='/category'>Category</router-link></a>
@@ -37,10 +40,12 @@
                 </ul>
               </div>
             </div>
+            <!-- Informationstext -->
             <div class="col-md-3 col-lg-2 offset-lg-1">
               <h5>Information</h5>
               <p>{{ informationContent }}</p>
             </div>
+            <!-- Newsletter-Abonnement-Formular -->
             <div class="col-md-3 offset-lg-1">
               <div class="info_form">
                 <h5>Newsletter</h5>
@@ -55,9 +60,11 @@
 
         <div class="row">
           <div class="col-lg-9 col-md-10 mx-auto">
+            <!-- Kontaktdetails -->
             <div class="info_contact layout_padding2">
               <div class="row">
                 <div class="col-md-3">
+                  <!-- Standort -->
                   <a href="#" class="link-box">
                     <div class="img-box">
                       <img src="@/assets/location.png" alt="">
@@ -65,11 +72,11 @@
                     <div class="detail-box">
                       <h6>Location</h6>
                       <h6>{{ Location }}</h6>
-
                     </div>
                   </a>
                 </div>
                 <div class="col-md-4">
+                  <!-- E-Mail -->
                   <a href="#" class="link-box">
                     <div class="img-box">
                       <img src="@/assets/mail.png" alt="">
@@ -80,6 +87,7 @@
                   </a>
                 </div>
                 <div class="col-md-5">
+                  <!-- Telefonnummer -->
                   <a href="#" class="link-box">
                     <div class="img-box">
                       <img src="@/assets/call.png" alt="">
@@ -104,11 +112,12 @@ export default {
   name: 'InfoSection',
   data() {
     return {
+      // Daten für die Firmeninformationen
       companyName: 'Web Pioneers',
       logoImage: require('@/assets/logo_ohneHintergrund.png'),
-      informationContent: 'Readable content of a page when looking at its layoutreadable content of a page when looking at its layout',
+      informationContent: 'Lesbarer Inhalt einer Seite beim Betrachten des Layouts',
       email: 'Web-Pioneers@gmail.com',
-      phoneNumber: 'Call +015 1111111111',
+      phoneNumber: 'Rufen Sie +015 1111111111 an',
       currentTab: 'Home',
       Location: 'Bochum'
     };
@@ -118,6 +127,7 @@ export default {
   }
 };
 </script>
+
 
 <style scoped>
 

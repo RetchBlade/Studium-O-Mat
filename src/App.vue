@@ -1,38 +1,46 @@
 <template>
-    <div id="app">
+  <div id="app">
+      <!-- HeaderSection-Komponente wird gerendert, und beim Auslösen des Ereignisses 'open-login-modal' wird showLoginModal auf true gesetzt -->
       <HeaderSection @open-login-modal="showLoginModal = true"/>
-      <LoginModal :isVisible="showLoginModal" @close-modal="showLoginModal = false" />
       
+      <!-- Die LoginModal-Komponente wird gerendert und ist sichtbar, wenn showLoginModal true ist. Durch das Schließen des Modals wird showLoginModal auf false gesetzt -->
+      <LoginModal :isVisible="showLoginModal" @close-modal="showLoginModal = false" />
+    
+      <!-- Die router-view-Komponente wird gerendert, um dynamisch verschiedene Ansichten basierend auf der aktuellen URL zu laden -->
       <router-view> </router-view>
       
+      <!-- InfoSection-Komponente wird gerendert -->
       <InfoSection/>
+      
+      <!-- FooterSection-Komponente wird gerendert -->
       <FooterSection/>
-    </div>
-  </template>
-  
-  <script>
-  import HeaderSection from '@/components_Section/HeaderSection.vue'
-  import LoginModal from '@/components_Login/LoginModal.vue'
-  import InfoSection from '@/components_Section/InfoSection.vue'
-  import FooterSection from '@/components_Section/FooterSection.vue'
+  </div>
+</template>
 
-  
-  export default {
-    name: 'App',
-    components: {
+<script>
+import HeaderSection from '@/components_Section/HeaderSection.vue' // Importiere HeaderSection-Komponente
+import LoginModal from '@/components_Login/LoginModal.vue' // Importiere LoginModal-Komponente
+import InfoSection from '@/components_Section/InfoSection.vue' // Importiere InfoSection-Komponente
+import FooterSection from '@/components_Section/FooterSection.vue' // Importiere FooterSection-Komponente
+
+export default {
+  name: 'App', // Name der Hauptkomponente
+
+  components: { // Registriere die importierten Komponenten
       HeaderSection,
       LoginModal,
       InfoSection,
       FooterSection,
-    },
+  },
 
-    data(){
-      return{
-        showLoginModal: false,
+  data() { // Datenobjekt für die Hauptkomponente
+      return {
+          showLoginModal: false, // Initial ist das Login-Modal nicht sichtbar
       }
-    },
-  }
-  </script>
+  },
+}
+</script>
+
   
   <style>
   @import '../public/css/bootstrap.css';

@@ -1,21 +1,25 @@
 <template>
-    <footer class="container-fluid footer_section">
-      <div class="container">
-        <p>&copy; <span id="displayDate">{{ currentYear }}</span> Alle Rechte vorbehalten</p>
-      </div>
-    </footer>
-  </template>
-  
-  <script>
-  export default {
-    name: 'FooterSection',
-    data() {
-      return {
-        currentYear : new Date().getFullYear()
-      };
-    },
-  };
-  </script>
+  <!-- Fußzeile -->
+  <footer class="container-fluid footer_section">
+    <div class="container">
+      <!-- Urheberrechtshinweis mit aktuellem Jahr -->
+      <p>&copy; <span id="displayDate">{{ currentYear }}</span> Alle Rechte vorbehalten</p>
+    </div>
+  </footer>
+</template>
+
+<script>
+export default {
+  name: 'FooterSection',
+  data() {
+    return {
+      // Aktuelles Jahr für das Urheberrecht
+      currentYear : new Date().getFullYear()
+    };
+  },
+};
+</script>
+
   
   <style scoped>
     .footer_section {
