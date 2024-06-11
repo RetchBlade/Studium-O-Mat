@@ -1,35 +1,46 @@
 <template>
-    <section class="about_section layout_padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-lg-9 mx-auto">
-            <div class="img-box">
-              <img :src="aboutImage" alt="">
-            </div>
+  <!-- Über uns Abschnitt -->
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-9 mx-auto">
+          <!-- Bild -->
+          <div class="img-box">
+            <img :src="aboutImage" alt="">
           </div>
         </div>
-        <div class="detail-box">
-          <h2>{{ aboutTitle }}</h2>
-          <p>{{ aboutContent }}</p>
-          <a href="">{{ readMoreLink }}</a>
-        </div>
       </div>
-    </section>
-  </template>
-  
-  <script>
-  export default {
-    name: 'AboutSection',
-    data() {
-      return {
-        aboutTitle: 'About Spering Company',
-        aboutContent: `There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If youThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you`,
-        readMoreLink: 'Read More',
-        aboutImage: require('@/assets/about-img.jpg')
-      };
-    }
+      <!-- Details -->
+      <div class="detail-box">
+        <!-- Titel -->
+        <h2>{{ aboutTitle }}</h2>
+        <!-- Inhalt -->
+        <p>{{ aboutContent }}</p>
+        <!-- "Weiterlesen"-Link -->
+        <a href="">{{ readMoreLink }}</a>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'AboutSection',
+  data() {
+    return {
+      // Titel des Über uns Abschnitts
+      aboutTitle: 'About Spering Company',
+      // Inhalt des Über uns Abschnitts
+      aboutContent: `Es gibt viele Variationen der Passagen des Lorem Ipsum, aber der Großteil hat in irgendeiner Form eine Veränderung durch Humor oder zufällig eingefügte Wörter erlitten, die nicht einmal annähernd glaubwürdig aussehen. Wenn Sie`, // Hier fehlt ein Teil des Textes in der Vorlage
+      // Link "Weiterlesen"
+      readMoreLink: 'Mehr lesen',
+      // Bild für den Über uns Abschnitt
+      aboutImage: require('@/assets/about-img.jpg')
+    };
   }
-  </script>
+}
+</script>
+
   
   <style scoped>
     

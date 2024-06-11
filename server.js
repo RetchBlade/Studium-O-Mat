@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -9,21 +7,22 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// MongoDB Atlas connection
+// MongoDB Atlas Verbindung
 mongoose.connect('mongodb+srv://WebPioneers:studiomat@livable.joewjmc.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
+  .then(() => console.log('MongoDB verbunden'))
   .catch(err => console.log(err));
 
 app.listen(5000, () => {
-   console.log('Server running on port 5000');
+   console.log('Server läuft auf Port 5000');
 });
 
-// Importiere die Quiz-Routes
+// Quiz-Routen importieren
 const quizRoutes = require('./Backend/routes/quiz');
 app.use('/api/quiz', quizRoutes);
 
-//  Importiere die auth-Routes
+// Auth-Routen importieren
 const authRoutes = require('./Backend/routes/auth');
 app.use('/api/auth', authRoutes);
 
+// CORS-Einstellungen für den Zugriff von http://localhost:8080
 app.use(cors({ origin: 'http://localhost:8080' }));
