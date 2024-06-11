@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg custom_nav-container">
         <a class="navbar-brand">
           <img src="@/assets/logo_ohneHintergrund.png" alt="" />
-          <span>Studium-O-Mat</span>
+          <span><RouterLink to="/" class="nav-link">Studium-O-Mat</RouterLink></span>
         </a>
         <button class="navbar-toggler" type="button" @click="toggleMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
