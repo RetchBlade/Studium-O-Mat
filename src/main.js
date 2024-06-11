@@ -5,7 +5,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import HomePage from './components_Page/HomePage.vue'
 import AboutPage from './components_Page/AboutPage.vue'
-import WorkPage from './components_Page/WorkPage.vue'
+import WorkPage from './components_Page/StudiumOMatPage.vue'
 import CategoryPage from './components_Page/CategoryPage.vue'
 import QuizPage from './components_Page/QuizPage.vue'
 
