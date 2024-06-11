@@ -1,22 +1,17 @@
 <template>
-  <!-- Quiz-Komponente -->
   <div>
     <!-- Fragen laden -->
     <div v-if="questions.length > 0">
-      <!-- Wenn nicht die letzte Frage -->
-      <div v-if="!showNextButton">
-        <!-- Frage anzeigen -->
-        <h3>{{ questions[currentQuestionIndex].frage }}</h3>
-        <!-- Nächste Frage Schaltfläche -->
-        <button @click="nextQuestion">Nächste Frage</button>
-      </div>
-      <!-- Wenn die letzte Frage -->
-      <div v-else>
-        <!-- Meldung für übersprungene Frage -->
-        <p>Frage übersprungen!</p>
-        <!-- Nächste Frage Schaltfläche -->
-        <button @click="loadNextQuestion">Nächste Frage</button>
-      </div>
+      <!-- Frage anzeigen -->
+      <h3>{{ questions[currentQuestionIndex].frage }}</h3>
+      <!-- Studiengänge anzeigen -->
+      <ul>
+        <li v-for="(studiengang, index) in questions[currentQuestionIndex].studiengänge" :key="index">
+          {{ studiengang }}
+        </li>
+      </ul>
+      <!-- Nächste Frage Schaltfläche -->
+      <button @click="loadNextQuestion" :disabled="isLastQuestion">Nächste Frage</button>
     </div>
     <!-- Wenn Fragen noch geladen werden -->
     <div v-else>
@@ -28,52 +23,39 @@
 
 <script>
 export default {
-  
   data() {
     return {
-      // Fragenarray
-      questions: [],
-      // Index der aktuellen Frage
-      currentQuestionIndex: 0,
-      // Flag, um anzuzeigen, ob die nächste Frage-Schaltfläche angezeigt werden soll
-      showNextButton: false
+      questions: [], // Fragenarray
+      currentQuestionIndex: 0 // Index der aktuellen Frage
     };
   },
-  // Beim Erstellen der Komponente Fragen laden
   created() {
-    this.loadQuestions();
+    this.loadQuestions(); // Beim Erstellen der Komponente Fragen laden
   },
   methods: {
-    // Methode zum Laden der Fragen
     async loadQuestions() {
       try {
         // Fragen von der API abrufen
-        const response = await fetch('http://localhost:5000/api/quiz/fragen');
-        // Antwort in JSON umwandeln
+        const response = await fetch('http://localhost:5000/api/quiz/questions');
         const data = await response.json();
-        // Fragen im Datenarray speichern
-        this.questions = data;
+        this.questions = data; // Fragen im Datenarray speichern
       } catch (error) {
-        // Fehlerbehandlung bei Fehler beim Laden der Fragen
-        console.error('Error loading questions:', error);
+        console.error('Error loading questions:', error); // Fehlerbehandlung bei Fehler beim Laden der Fragen
       }
     },
-    // Methode zum Anzeigen der nächsten Frage
-    nextQuestion() {
-      // Nächste Frage-Schaltfläche anzeigen
-      this.showNextButton = true;
-    },
-    // Methode zum Laden der nächsten Frage
     loadNextQuestion() {
-      // Index der aktuellen Frage erhöhen
-      this.currentQuestionIndex++;
-      // Nächste Frage-Schaltfläche ausblenden
-      this.showNextButton = false;
+      if (this.currentQuestionIndex < this.questions.length - 1) {
+        this.currentQuestionIndex++; // Index der aktuellen Frage erhöhen
+      }
+    }
+  },
+  computed: {
+    isLastQuestion() {
+      return this.currentQuestionIndex >= this.questions.length - 1; // Überprüfen, ob es die letzte Frage ist
     }
   }
 }
 </script>
-
 
 <style scoped>
 /* Stile für QuizComponent */

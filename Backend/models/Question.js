@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
-// Frage-Schema definieren
-const questionSchema = new mongoose.Schema({
+const fragenSchema = new Schema({
   frage: {
     type: String,
-    required: true // Die Frage muss vorhanden sein
+    required: true
   },
-  studiengänge: {
-    type: [String],
-    required: true // Mindestens ein Studiengang muss angegeben werden
-  }
-});
+  studiengänge: [{
+    type: String,
+    required: true
+  }]
+}, { collection: 'question' });
 
-// Fragemodell erstellen und exportieren
-module.exports = mongoose.model('fragen', questionSchema);
+const Frage = model('Frage', fragenSchema);
+
+module.exports = Frage;

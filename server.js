@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB Atlas Verbindung
-mongoose.connect('mongodb+srv://WebPioneers:studiomat@livable.joewjmc.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://WebPioneers:studiomat@livable.joewjmc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB verbunden'))
   .catch(err => console.log(err));
 
