@@ -19,11 +19,11 @@ app.listen(5000, () => {
 });
 
 // Importiere die Quiz-Routes
-const quizRoutes = require('./routes/quiz');
+const quizRoutes = require('./Backend/routes/quiz');
 app.use('/api/quiz', quizRoutes);
 
 //  Importiere die auth-Routes
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./Backend/routes/auth');
 app.use('/api/auth', authRoutes);
 
 app.use(cors({ origin: 'http://localhost:8080' }));
