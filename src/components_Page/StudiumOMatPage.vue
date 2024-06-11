@@ -8,7 +8,7 @@
                 <div class="detail-box">
                   <div class="heading_container">
                     <h2>
-                      Work Freelancer Has Done
+                      Über Studium-O-Mat                  
                     </h2>
                   </div>
                   <div class="tab_container">
@@ -18,7 +18,7 @@
                       </div>
                       <div class="detail-box">
                         <h5>
-                          $250 Million
+                            Was machen wir ?
                         </h5>
                         <h3>
                           Paid to Freelancers
@@ -61,8 +61,7 @@
                         </h5>
                         <h3>
                           Customer <br>
-                          Satisfaction Rate
-                        </h3>
+               </h3>
                       </div>
                     </div>
                   </div>
@@ -71,22 +70,22 @@
               <div class="col-md-6">
                 <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="img-box">
-                    <img src="@/assets/freelance-img.jpg" alt="">
+                    <img src="@/assets/weblogoGross.png" alt="">
                   </div>
                 </div>
                 <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div class="img-box">
-                    <img src="@/assets/freelance-img.jpg" alt="">
+                    <img src="@/assets/weblogoGross.png" alt="">
                   </div>
                 </div>
                 <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="img-box">
-                    <img src="@/assets/freelance-img.jpg" alt="">
+                    <img src="@/assets/weblogoGross.png" alt="">
                   </div>
                 </div>
                 <div class="collapse" id="collapseFour" aria-labelledby="headingfour" data-parent="#accordion">
                   <div class="img-box">
-                    <img src="@/assets/freelance-img.jpg" alt="">
+                    <img src="@/assets/weblogoGross.png" alt="">
                   </div>
                 </div>
               </div>
@@ -99,7 +98,7 @@
   
   <script>
   export default {
-    name: 'WorkPage'
+    name: 'StudiumOMatPage'
   }
   </script>
   
