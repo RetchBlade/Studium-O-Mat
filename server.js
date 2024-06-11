@@ -14,10 +14,16 @@ mongoose.connect('mongodb+srv://WebPioneers:studiomat@livable.joewjmc.mongodb.ne
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+app.listen(5000, () => {
+   console.log('Server running on port 5000');
+});
+
 // Importiere die Quiz-Routes
 const quizRoutes = require('./routes/quiz');
 app.use('/api/quiz', quizRoutes);
 
-app.listen(5000, () => {
-  console.log('Server running on port 5000');
-});
+//  Importiere die auth-Routes
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
+app.use(cors({ origin: 'http://localhost:8080' }));

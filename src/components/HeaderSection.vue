@@ -174,17 +174,6 @@ a:focus {
           box-shadow: none;
 }
 
-.custom_nav-container .nav_search-btn {
-  background-image: url('@/assets/search-icon.png');
-  background-size: 17px;
-  background-repeat: no-repeat;
-  background-position-y: 7px;
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  border: none;
-}
-
 .custom_nav-container form {
   padding-top: 7px;
 }
