@@ -19,7 +19,7 @@
               <RouterLink to="/about" class="nav-link">Über uns</RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink to="/work" class="nav-link">Studium-O-Mat</RouterLink>
+              <RouterLink to="/studiumOMat" class="nav-link">Studium-O-Mat</RouterLink>
             </li>
             <li class="nav-item">
               <RouterLink to="/category" class="nav-link">Kategorien</RouterLink>

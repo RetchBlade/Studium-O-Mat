@@ -29,7 +29,7 @@
                     <a class="nav-link"><router-link to='/about'>About</router-link> </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><router-link to='/work'>Work</router-link></a>
+                    <a class="nav-link"><router-link to='/studiumOMat'>Work</router-link></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"><router-link to='/category'>Category</router-link></a>
