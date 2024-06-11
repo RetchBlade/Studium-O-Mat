@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import QuizComponent from './QuizComponent.vue';
+import QuizComponent from '@/components/QuizComponent.vue';
 
 export default {
   name: 'QuizPage',

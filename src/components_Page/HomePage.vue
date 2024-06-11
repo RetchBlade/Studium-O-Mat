@@ -4,8 +4,8 @@
 </template>
 
 <script>
-  import SliderComponent from './SliderComponent.vue'
-  import ExperienceComponent from './ExperienceComponent.vue'
+  import SliderComponent from '@/components/SliderComponent.vue'
+  import ExperienceComponent from '@/components/ExperienceComponent.vue'
 
   export default {
     components: {

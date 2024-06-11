@@ -11,10 +11,10 @@
   </template>
   
   <script>
-  import HeaderSection from './components/HeaderSection.vue'
-  import LoginModal from './components/LoginModal.vue'
-  import InfoSection from './components/InfoSection.vue'
-  import FooterSection from './components/FooterSection.vue'
+  import HeaderSection from '@/components_Section/HeaderSection.vue'
+  import LoginModal from '@/components_Login/LoginModal.vue'
+  import InfoSection from '@/components_Section/InfoSection.vue'
+  import FooterSection from '@/components_Section/FooterSection.vue'
 
   
   export default {

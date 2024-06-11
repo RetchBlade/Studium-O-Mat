@@ -3,11 +3,11 @@ import App from './App.vue'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import HomePage from './components/HomePage.vue'
-import AboutPage from './components/AboutPage.vue'
-import WorkPage from './components/WorkPage.vue'
-import CategoryPage from './components/CategoryPage.vue'
-import QuizPage from './components/QuizPage.vue'
+import HomePage from './components_Page/HomePage.vue'
+import AboutPage from './components_Page/AboutPage.vue'
+import WorkPage from './components_Page/WorkPage.vue'
+import CategoryPage from './components_Page/CategoryPage.vue'
+import QuizPage from './components_Page/QuizPage.vue'
 
 const app = createApp(App)
 
