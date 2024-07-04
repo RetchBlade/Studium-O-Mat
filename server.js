@@ -2,9 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+require('dotenv').config();
+
 
 const app = express();
-app.use(cors());
+
 app.use(bodyParser.json());
 
 // MongoDB Atlas Verbindung
@@ -18,7 +20,12 @@ app.listen(5000, () => {
 
 
 // CORS-Einstellungen für den Zugriff von http://localhost:8080
-app.use(cors({ origin: 'http://localhost:8080' }));
+const corsOptions = {
+  origin: 'http://localhost:8080'
+};
+
+app.use(cors(corsOptions));
+
 
 
 // Quiz-Routen importieren

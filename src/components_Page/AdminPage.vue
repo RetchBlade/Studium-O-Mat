@@ -3,19 +3,13 @@
     <aside v-if="loggedIn" class="sidebar">
       <div class="sidebar-header">
         <h2 class="sidebar-title">{{ pageTitle }}</h2>
-        <p>{{ userEmail }}</p> <!-- Anzeige der angemeldeten E-Mail-Adresse -->
+        <p v-if="loggedIn && isAdmin">{{ userEmail }}</p>
       </div>
       <nav>
         <ul>
-          <li>
-            <router-link to="/admin/dashboard">Dashboard</router-link>
-          </li>
-          <li>
-            <router-link to="/admin/users">Benutzer</router-link>
-          </li>
-          <li>
-            <router-link to="/admin/fragen">Frage Pool</router-link>
-          </li>
+          <li><router-link to="/admin/dashboard">Dashboard</router-link></li>
+          <li><router-link to="/admin/users">Benutzer</router-link></li>
+          <li><router-link to="/admin/fragen">Frage Pool</router-link></li>
         </ul>
         <button @click="logout" class="logout-button">Logout</button>
       </nav>
@@ -28,32 +22,60 @@
 </template>
 
 <script>
+import jwt_decode from 'jwt-decode';
 import LoginAdmin from '../components_Login/LoginAdmin.vue';
 
 export default {
   name: 'AdminPage',
+  data() {
+    return {
+      loggedIn: false,
+      isAdmin: false,
+      userEmail: '',
+      pageTitle: 'Admin Page'
+    };
+  },
   components: {
     LoginAdmin
   },
-  data() {
-    return {
-      pageTitle: 'Admin Panel',
-      loggedIn: false
-    };
+  created() {
+    this.checkLoginStatus();
   },
   methods: {
+    checkLoginStatus() {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const decoded = jwt_decode(token);
+          console.log('Decoded token:', decoded); // Zum Debuggen
+          this.loggedIn = true;
+          this.isAdmin = decoded.isAdmin;
+          this.userEmail = decoded.email;
+        } catch (error) {
+          console.error('Error decoding token:', error);
+          this.loggedIn = false;
+          this.isAdmin = false;
+          this.userEmail = '';
+          localStorage.removeItem('token');
+        }
+      } else {
+        this.loggedIn = false;
+        this.isAdmin = false;
+        this.userEmail = '';
+      }
+    },
     handleSuccessfulLogin() {
-      this.loggedIn = true;
+      console.log('handleSuccessfulLogin called'); // Zum Debuggen
+      this.checkLoginStatus();
     },
     logout() {
-      // Hier können Sie die Logout-Logik implementieren
-      // Zum Beispiel:
-      // - Session löschen
-      // - Zustand zurücksetzen
       this.loggedIn = false;
+      this.isAdmin = false;
+      this.userEmail = '';
+      localStorage.removeItem('token');
     }
   }
-}
+};
 </script>
 
 <style scoped>

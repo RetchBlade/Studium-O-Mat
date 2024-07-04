@@ -20,24 +20,27 @@ router.post('/register', async (req, res) => {
     // Fehlerstatus und Fehlermeldung senden, falls ein Fehler auftritt
     res.status(500).send(error);
   }
-})
+});
 
 // POST-Anfrage zum Einloggen eines Benutzers
 router.post('/login', async (req, res) => {
   try {
-    // Benutzerdaten aus der Anfrage erhalten
     const { email, password } = req.body;
+    
     // Benutzer in der Datenbank finden
     const user = await User.findOne({ email });
+
     // Überprüfen, ob der Benutzer existiert und das Passwort korrekt ist
-    if (!user || !await bcrypt.compare(password, user.password)) {
+    if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(400).send({ message: 'Invalid email or password' });
     }
+
     // JWT-Token erstellen und senden
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.send({ token });
+
   } catch (error) {
-    // Fehlerstatus und Fehlermeldung senden, falls ein Fehler auftritt
+    console.error('Login error:', error);
     res.status(500).send(error);
   }
 });

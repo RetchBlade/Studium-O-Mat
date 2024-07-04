@@ -2,8 +2,8 @@
     <div class="login-form">
       <h2>Login</h2>
       <form @submit.prevent="login">
-        <label for="username">Username:</label>
-        <input type="text" id="username" v-model="username" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email" required>
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="password" required>
         <button type="submit">Login</button>
@@ -17,25 +17,44 @@
     name: 'LoginAdmin',
     data() {
       return {
-        username: '',
+        email: '',
         password: '',
         loginError: ''
       };
     },
     methods: {
-      login() {
-        // Simulated login logic (replace with actual logic)
-        if (this.username === 'admin' && this.password === 'password') {
-          // Emit event to parent component (AdminPage.vue) indicating successful login
+      async login() {
+        try {
+          const response = await fetch('http://localhost:5000/api/auth/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email: this.email,
+              password: this.password
+            })
+          });
+  
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Login failed.');
+          }
+  
+          const responseData = await response.json();
+          const { token } = responseData;
+  
+          localStorage.setItem('token', token);
+  
           this.$emit('login-successful');
-        } else {
-          this.loginError = 'Invalid username or password.';
+        } catch (error) {
+          console.error('Login error:', error.message);
+          this.loginError = 'Invalid email or password.';
         }
       }
     }
-  }
+  };
   </script>
-  
   <style scoped>
   .login-form {
     max-width: 300px;
@@ -56,7 +75,7 @@
     margin-bottom: 10px;
   }
   
-  .login-form input[type="text"],
+  .login-form input[type="email"], /* Änderung von "text" zu "email" für das E-Mail-Feld */
   .login-form input[type="password"] {
     width: 100%;
     padding: 8px;

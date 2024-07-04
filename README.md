@@ -13,7 +13,7 @@ npm run serve
 ### Backend starten
 ```
 zuerst module installieren
-    npm install jsonwebtoken bcrypt cors mongoose
+    npm install jsonwebtoken bcrypt cors mongoose dotenv
 starten des backend mit:
     node server.js
 ```
