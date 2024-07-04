@@ -1,64 +1,124 @@
 <template>
-    <div class="admin-container">
-      <aside class="sidebar">
-        <nav>
-          <ul>
-            <li>
-              <router-link to="/admin/dashboard">Dashboard</router-link>
-            </li>
-            <li>
-              <router-link to="/admin/users">Users</router-link>
-            </li>
-            <li>
-              <router-link to="/admin/fragen">Frage Pool</router-link>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-      <main class="main-content">
-        <router-view></router-view>
-      </main>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'AdminPage',
+  <div class="admin-container">
+    <aside v-if="loggedIn" class="sidebar">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">{{ pageTitle }}</h2>
+        <p>{{ userEmail }}</p> <!-- Anzeige der angemeldeten E-Mail-Adresse -->
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <router-link to="/admin/dashboard">Dashboard</router-link>
+          </li>
+          <li>
+            <router-link to="/admin/users">Benutzer</router-link>
+          </li>
+          <li>
+            <router-link to="/admin/fragen">Frage Pool</router-link>
+          </li>
+        </ul>
+        <button @click="logout" class="logout-button">Logout</button>
+      </nav>
+    </aside>
+    <main v-if="loggedIn" class="main-content">
+      <router-view></router-view>
+    </main>
+    <login-admin v-else @login-successful="handleSuccessfulLogin" />
+  </div>
+</template>
+
+<script>
+import LoginAdmin from '../components_Login/LoginAdmin.vue';
+
+export default {
+  name: 'AdminPage',
+  components: {
+    LoginAdmin
+  },
+  data() {
+    return {
+      pageTitle: 'Admin Panel',
+      loggedIn: false
+    };
+  },
+  methods: {
+    handleSuccessfulLogin() {
+      this.loggedIn = true;
+    },
+    logout() {
+      // Hier können Sie die Logout-Logik implementieren
+      // Zum Beispiel:
+      // - Session löschen
+      // - Zustand zurücksetzen
+      this.loggedIn = false;
+    }
   }
-  </script>
-  
-  <style scoped>
-  .admin-container {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 200px;
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    height: 100vh;
-    position: fixed;
-  }
-  
-  .sidebar nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar nav ul li {
-    margin-bottom: 10px;
-  }
-  
-  .sidebar nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .main-content {
-    margin-left: 220px;
-    padding: 20px;
-    width: 100%;
-  }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+.admin-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #34495e;
+  color: #ecf0f1;
+  padding-top: 20px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #2c3e50;
+}
+
+.main-content {
+  margin-left: 260px;
+  padding: 20px;
+  width: 100%;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+</style>

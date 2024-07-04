@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true }, // E-Mail muss vorhanden und eindeutig sein
   password: { type: String, required: true }, // Passwort muss vorhanden sein
+  isAdmin: { type: Boolean, default: false } // Standardmäßig auf false setzen
 });
 
 // Vor dem Speichern des Benutzers das Passwort hashen

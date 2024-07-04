@@ -11,7 +11,7 @@ router.post('/register', async (req, res) => {
     // Benutzerdaten aus der Anfrage erhalten
     const { email, password } = req.body;
     // Neuen Benutzer mit den erhaltenen Daten erstellen
-    const user = new User({ email, password });
+    const user = new User({ email, password, isAdmin: false }); // isAdmin auf false setzen
     // Benutzer in der Datenbank speichern
     await user.save();
     // Erfolgsmeldung senden
@@ -20,7 +20,7 @@ router.post('/register', async (req, res) => {
     // Fehlerstatus und Fehlermeldung senden, falls ein Fehler auftritt
     res.status(500).send(error);
   }
-});
+})
 
 // POST-Anfrage zum Einloggen eines Benutzers
 router.post('/login', async (req, res) => {
@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).send({ message: 'Invalid email or password' });
     }
     // JWT-Token erstellen und senden
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.send({ token });
   } catch (error) {
     // Fehlerstatus und Fehlermeldung senden, falls ein Fehler auftritt
