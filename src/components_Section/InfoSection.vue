@@ -32,6 +32,9 @@
                   <li class="nav-item">
                     <a class="nav-link"><router-link to='/studiumOMat'>StudiumOMat</router-link></a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link"><router-link to='/quiz'>Quiz</router-link></a>
+                  </li>
                 </ul>
               </div>
             </div>
