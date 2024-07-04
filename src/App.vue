@@ -1,19 +1,23 @@
 <template>
   <div id="app">
+    <template v-if="$route.path !== '/admin'">
       <!-- HeaderSection-Komponente wird gerendert, und beim Auslösen des Ereignisses 'open-login-modal' wird showLoginModal auf true gesetzt -->
       <HeaderSection @open-login-modal="showLoginModal = true"/>
       
       <!-- Die LoginModal-Komponente wird gerendert und ist sichtbar, wenn showLoginModal true ist. Durch das Schließen des Modals wird showLoginModal auf false gesetzt -->
       <LoginModal :isVisible="showLoginModal" @close-modal="showLoginModal = false" />
-    
-      <!-- Die router-view-Komponente wird gerendert, um dynamisch verschiedene Ansichten basierend auf der aktuellen URL zu laden -->
-      <router-view> </router-view>
-      
+    </template>
+
+    <!-- Die router-view-Komponente wird immer gerendert, um dynamisch verschiedene Ansichten basierend auf der aktuellen URL zu laden -->
+    <router-view></router-view>
+
+    <template v-if="$route.path !== '/admin'">
       <!-- InfoSection-Komponente wird gerendert -->
       <InfoSection/>
       
       <!-- FooterSection-Komponente wird gerendert -->
       <FooterSection/>
+    </template>
   </div>
 </template>
 
@@ -41,8 +45,7 @@ export default {
 }
 </script>
 
-  
-  <style>
+<style>
   @import '../public/css/bootstrap.css';
   @import '../public/css/responsive.css';
   @import '../public/css/style.scss';
@@ -93,5 +96,4 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
 }
-  </style>
-  
+</style>

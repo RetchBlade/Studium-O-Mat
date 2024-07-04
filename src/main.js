@@ -7,6 +7,8 @@ import HomePage from './components_Page/HomePage.vue';
 import AboutPage from './components_Page/AboutPage.vue';
 import StudiumOMatPage from './components_Page/StudiumOMatPage.vue';
 import QuizPage from './components_Page/QuizPage.vue';
+import ScorePage from './components_Page/ScorePage.vue';
+import AdminPage from './components_Page/AdminPage';
 
 // Vue-App erstellen
 const app = createApp(App);
@@ -16,7 +18,9 @@ const routes = [
     { path: '/', component: HomePage },
     { path: '/about', component: AboutPage },
     { path: '/studiumOMat', component: StudiumOMatPage },
-    { path: '/quiz', component: QuizPage }
+    { path: '/quiz', component: QuizPage },
+    { path: '/score', component: ScorePage },
+    { path: '/admin', component: AdminPage }
 ];
 
 // Router erstellen
