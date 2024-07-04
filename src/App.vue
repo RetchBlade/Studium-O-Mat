@@ -47,6 +47,9 @@ export default {
   @import '../public/css/responsive.css';
   @import '../public/css/style.scss';
 
+  html {
+      scroll-behavior: smooth;
+    }
 
   body {
   font-family: 'Poppins', sans-serif;

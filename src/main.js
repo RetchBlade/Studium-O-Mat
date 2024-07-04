@@ -23,7 +23,16 @@ const routes = [
 const router = createRouter({
     history: createWebHashHistory(),
     routes: routes,
-    linkActiveClass: 'active' // Klasse für aktiven Link in der Navigation
+    linkActiveClass: 'active', // Klasse für aktiven Link in der Navigation
+    scrollBehavior(to, from, savedPosition) {
+        // Falls eine gespeicherte Position existiert, scrolle zu dieser Position
+        if (savedPosition) {
+            return savedPosition;
+        } else {
+            // Ansonsten scrolle zur oberen linken Ecke der Seite
+            return { top: 0 };
+        }
+    }
 });
 
 // Router in die Vue-App einbinden
