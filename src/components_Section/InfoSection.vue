@@ -47,9 +47,9 @@
             <div class="col-md-3 offset-lg-1">
               <div class="info_form">
                 <h5>Newsletter</h5>
-                <form action="">
-                  <input type="email" placeholder="Email">
-                  <button>Abonnieren</button>
+                <form @submit.prevent="subscribe">
+                  <input type="email" v-model="emailInput" placeholder="Email" required>
+                  <button type="submit">Abonnieren</button>
                 </form>
               </div>
             </div>
@@ -100,6 +100,13 @@
           </div>
         </div>
 
+        <!-- GIF-Anzeige -->
+        <div v-if="showGif" class="gif-overlay">
+          <div style="width:100%;height:0;padding-bottom:83%;position:relative;">
+            <iframe src="https://giphy.com/embed/Vuw9m5wXviFIQ" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+          </div>
+          <p><a href="https://giphy.com/gifs/rickroll-rick-astley-never-gonna-give-you-up-Vuw9m5wXviFIQ">Joke, sowas machen wir nicht!</a></p>
+        </div>
       </div>
     </div>
   </section>
@@ -117,39 +124,37 @@ export default {
       email: 'Web-Pioneers@gmail.com',
       phoneNumber: 'Rufen Sie +015 1111111111 an',
       currentTab: 'Home',
-      Location: 'Bochum'
+      Location: 'Bochum',
+      emailInput: '',
+      showGif: false
     };
   },
   methods: {
-   
+    subscribe() {
+      this.showGif = true;
+      setTimeout(() => {
+        this.showGif = false;
+      }, 3000); // GIF für 3 Sekunden anzeigen
+    }
   }
 };
 </script>
 
-
 <style scoped>
-
 .info_section {
   position: relative;
   background-color: #34396E;
   color: #ffffff;
 }
 
-    .info_section {
-position: relative;
-background-color: #34396E;
-color: #ffffff;
-}
-
 .info_section .heading_container {
-margin-bottom: 45px;
+  margin-bottom: 45px;
 }
 
 .info_section h5 {
-text-transform: uppercase;
-font-weight: bold;
-margin-bottom: 20px;
-
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .info_section .info_top {
@@ -241,4 +246,25 @@ margin-bottom: 20px;
   max-height: 30px;
 }
 
+.gif-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.gif-overlay iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.gif-overlay p {
+  text-align: center;
+  margin-top: 10px;
+  color: #ffffff;
+}
 </style>
