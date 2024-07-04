@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import jwt_decode from 'jwt-decode';
+const { jwtDecode } = require('jwt-decode');
 import LoginAdmin from '../components_Login/LoginAdmin.vue';
 
 export default {
@@ -43,12 +43,12 @@ export default {
   },
   methods: {
     checkLoginStatus() {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('token'); 
       console.log('Token nehmen:', localStorage.getItem('token')); // Debug
       if (token) {
         console.log('Token vorhanden')
         try {
-          const decoded = jwt_decode(token);
+          const decoded = jwtDecode(token);
           console.log('Decoded token:', decoded); // Zum Debuggen
             this.loggedIn = true;
             this.isAdmin = true;
