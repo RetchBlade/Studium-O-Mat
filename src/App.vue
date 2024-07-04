@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <template v-if="$route.path !== '/admin'">
+    <template v-if="!isAdminRoute">
       <!-- HeaderSection-Komponente wird gerendert, und beim Auslösen des Ereignisses 'open-login-modal' wird showLoginModal auf true gesetzt -->
       <HeaderSection @open-login-modal="showLoginModal = true"/>
       
@@ -11,7 +11,7 @@
     <!-- Die router-view-Komponente wird immer gerendert, um dynamisch verschiedene Ansichten basierend auf der aktuellen URL zu laden -->
     <router-view></router-view>
 
-    <template v-if="$route.path !== '/admin'">
+    <template v-if="!isAdminRoute">
       <!-- InfoSection-Komponente wird gerendert -->
       <InfoSection/>
       
@@ -42,6 +42,13 @@ export default {
           showLoginModal: false, // Initial ist das Login-Modal nicht sichtbar
       }
   },
+
+  computed: {
+    isAdminRoute() {
+      // Überprüfe, ob der aktuelle Pfad mit "/admin" beginnt
+      return this.$route.path.startsWith('/admin');
+    }
+  }
 }
 </script>
 

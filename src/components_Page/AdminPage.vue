@@ -10,7 +10,7 @@
               <router-link to="/admin/users">Users</router-link>
             </li>
             <li>
-              <router-link to="/admin/settings">Settings</router-link>
+              <router-link to="/admin/fragen">Frage Pool</router-link>
             </li>
           </ul>
         </nav>
