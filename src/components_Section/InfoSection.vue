@@ -10,11 +10,9 @@
           </div>
           <!-- Social Media Links -->
           <div class="social_box">
-            <a href="#"><img src="@/assets/fb.png" alt=""></a>
-            <a href="#"><img src="@/assets/twitter.png" alt=""></a>
-            <a href="#"><img src="@/assets/linkedin.png" alt=""></a>
-            <a href="#"><img src="@/assets/instagram.png" alt=""></a>
-            <a href="#"><img src="@/assets/youtube.png" alt=""></a>
+            <a href="https://twitter.com/ChallengeAnim/status/1803488251744756000"><img src="@/assets/twitter.png" alt=""></a>
+            <a href="https://www.instagram.com/p/C88DGmLITmN/"><img src="@/assets/instagram.png" alt=""></a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="@/assets/youtube.png" alt=""></a>
           </div>
         </div>
 
