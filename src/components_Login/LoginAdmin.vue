@@ -42,11 +42,14 @@
           }
   
           const responseData = await response.json();
-          const { token } = responseData;
+          const {token}  = responseData;
   
           localStorage.setItem('token', token);
-  
+          console.log('Token in localStorage:', localStorage.getItem('token')); // Debug
+          console.log('Login war erfolgreich')
+
           this.$emit('login-successful');
+
         } catch (error) {
           console.error('Login error:', error.message);
           this.loginError = 'Invalid email or password.';

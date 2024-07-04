@@ -35,8 +35,13 @@ router.post('/login', async (req, res) => {
       return res.status(400).send({ message: 'Invalid email or password' });
     }
 
+    // Überprüfen, ob der Benutzer ein Admin ist
+    if (!user.isAdmin) {
+      return res.status(403).send({ message: 'Access denied' });
+    }
+
     // JWT-Token erstellen und senden
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ id: user._id, email: user.email, isAdmin: user.isAdmin }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.send({ token });
 
   } catch (error) {

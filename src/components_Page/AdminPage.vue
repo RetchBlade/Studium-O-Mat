@@ -3,7 +3,7 @@
     <aside v-if="loggedIn" class="sidebar">
       <div class="sidebar-header">
         <h2 class="sidebar-title">{{ pageTitle }}</h2>
-        <p v-if="loggedIn && isAdmin">{{ userEmail }}</p>
+        <p v-if="loggedIn">{{ userEmail }}</p>
       </div>
       <nav>
         <ul>
@@ -44,29 +44,27 @@ export default {
   methods: {
     checkLoginStatus() {
       const token = localStorage.getItem('token');
+      console.log('Token nehmen:', localStorage.getItem('token')); // Debug
       if (token) {
+        console.log('Token vorhanden')
         try {
           const decoded = jwt_decode(token);
           console.log('Decoded token:', decoded); // Zum Debuggen
-          this.loggedIn = true;
-          this.isAdmin = decoded.isAdmin;
-          this.userEmail = decoded.email;
+            this.loggedIn = true;
+            this.isAdmin = true;
+            this.userEmail = decoded.email;
         } catch (error) {
           console.error('Error decoding token:', error);
-          this.loggedIn = false;
-          this.isAdmin = false;
-          this.userEmail = '';
-          localStorage.removeItem('token');
+          this.logout(); // Token entfernen und Status zurücksetzen
         }
       } else {
-        this.loggedIn = false;
-        this.isAdmin = false;
-        this.userEmail = '';
+        this.logout();
       }
     },
     handleSuccessfulLogin() {
       console.log('handleSuccessfulLogin called'); // Zum Debuggen
       this.checkLoginStatus();
+      this.$router.replace('/admin/dashboard');   // Weiterleitung nach erfolgreichem Login
     },
     logout() {
       this.loggedIn = false;
