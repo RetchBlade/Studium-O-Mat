@@ -6,6 +6,8 @@
       description="Hier können Sie die Fragen verwalten."
       apiEndpoint="http://localhost:5000/api/quiz/readquest"
       apiInsert="http://localhost:5000/api/quiz/addquest"
+      apiUpdate="http://localhost:5000/api/quiz/updatequest"
+      apiDelete="http://localhost:5000/api/quiz/deletequest"
       :tableColumns="['frage', 'studiengänge']"
       :newItemTemplate="{ frage: '', studiengänge: [] }"
     />
