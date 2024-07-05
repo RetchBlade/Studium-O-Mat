@@ -31,7 +31,7 @@ export default {
     async loadQuestions() {
       try {
         // Fragen von der API abrufen
-        const response = await fetch('http://localhost:5000/api/quiz/questions');
+        const response = await fetch('http://localhost:5000/api/quiz/readquest');
         const data = await response.json();
         this.questions = data; // Fragen im Datenarray speichern
       } catch (error) {

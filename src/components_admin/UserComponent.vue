@@ -1,10 +1,11 @@
 <template>
   <div>
-    <h1>Benutzerliste</h1>
-    <p>Anpassungen der Benutzer</p>
-
     <!-- Integrate MongoDBTableViewer component -->
-    <MongoDBTableViewer />
+      <MongoDBTableViewer
+      title="Benutzerliste"
+        description="Anpassungen der Benutzer."
+        apiEndpoint=""
+      />
   </div>
 </template>
 

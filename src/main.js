@@ -11,7 +11,7 @@ import ScorePage from './components_Page/ScorePage.vue';
 import AdminPage from './components_Page/AdminPage';
 import AdminDash from './components_admin/DashboardComponent.vue';
 import AdminUser from './components_admin/UserComponent.vue';
-import AdminFragen from './components_admin/FragePoolComonent.vue';
+import AdminFragen from './components_admin/FragePoolComponent.vue';
 
 // Vue-App erstellen
 const app = createApp(App);
