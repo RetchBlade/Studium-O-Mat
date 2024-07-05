@@ -1,9 +1,9 @@
 <template>
   <div class="admin-container">
-    <aside v-if="loggedIn" class="sidebar">
+    <aside v-if="loggedIn && isAdmin" class="sidebar">
       <div class="sidebar-header">
         <h2 class="sidebar-title">{{ pageTitle }}</h2>
-        <p v-if="loggedIn">{{ userEmail }}</p>
+        <p v-if="loggedIn && isAdmin">{{ userEmail }}</p>
       </div>
       <nav>
         <ul>
@@ -14,10 +14,20 @@
         <button @click="logout" class="logout-button">Logout</button>
       </nav>
     </aside>
-    <main v-if="loggedIn" class="main-content">
+    <main v-if="loggedIn && isAdmin" class="main-content">
       <router-view></router-view>
     </main>
-    <login-admin v-else @login-successful="handleSuccessfulLogin" />
+    <div v-else-if="loginFailed" class="login-failed-message">
+      <p>Login fehlgeschlagen. Sie haben keine Admin-Rechte.</p>
+      <button @click="retryLogin" class="retry-button">Erneut versuchen</button>
+    </div>
+    <div v-else-if="userNotFound" class="user-not-found-message">
+      <p>Benutzer existiert nicht.</p>
+      <button @click="retryLogin" class="retry-button">Erneut versuchen</button>
+    </div>
+    <div v-else class="login-wrapper">
+      <login-admin @login-successful="handleSuccessfulLogin" @user-not-found="handleUserNotFound" />
+    </div>
   </div>
 </template>
 
@@ -32,7 +42,9 @@ export default {
       loggedIn: false,
       isAdmin: false,
       userEmail: '',
-      pageTitle: 'Admin Page'
+      pageTitle: 'Admin Page',
+      loginFailed: false,
+      userNotFound: false
     };
   },
   components: {
@@ -46,13 +58,17 @@ export default {
       const token = localStorage.getItem('token'); 
       console.log('Token nehmen:', localStorage.getItem('token')); // Debug
       if (token) {
-        console.log('Token vorhanden')
+        console.log('Token vorhanden');
         try {
           const decoded = jwtDecode(token);
           console.log('Decoded token:', decoded); // Zum Debuggen
-            this.loggedIn = true;
-            this.isAdmin = true;
-            this.userEmail = decoded.email;
+          this.loggedIn = true;
+          this.isAdmin = decoded.isAdmin;
+          this.userEmail = decoded.email;
+          if (!this.isAdmin) {
+            this.loginFailed = true;
+            this.logout();
+          }
         } catch (error) {
           console.error('Error decoding token:', error);
           this.logout(); // Token entfernen und Status zurücksetzen
@@ -64,13 +80,24 @@ export default {
     handleSuccessfulLogin() {
       console.log('handleSuccessfulLogin called'); // Zum Debuggen
       this.checkLoginStatus();
-      this.$router.replace('/admin/dashboard');   // Weiterleitung nach erfolgreichem Login
+      if (this.isAdmin) {
+        this.$router.replace('/admin/dashboard'); // Weiterleitung nach erfolgreichem Login
+      }
+    },
+    handleUserNotFound() {
+      console.log('handleUserNotFound called'); // Zum Debuggen
+      this.userNotFound = true;
     },
     logout() {
       this.loggedIn = false;
       this.isAdmin = false;
       this.userEmail = '';
       localStorage.removeItem('token');
+    },
+    retryLogin() {
+      this.loginFailed = false;
+      this.userNotFound = false;
+      this.$router.replace('/admin'); // Optional: Redirect to login page or reload the component
     }
   }
 };
@@ -79,6 +106,7 @@ export default {
 <style scoped>
 .admin-container {
   display: flex;
+  height: 100vh;
 }
 
 .sidebar {
@@ -140,5 +168,35 @@ export default {
 
 .logout-button:hover {
   background-color: #c0392b;
+}
+
+.login-failed-message, .user-not-found-message, .login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.login-failed-message, .user-not-found-message {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.retry-button {
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.retry-button:hover {
+  background-color: #2980b9;
 }
 </style>
