@@ -35,3 +35,4 @@ app.use('/api/quiz', quizRoutes);
 // Auth-Routen importieren
 const authRoutes = require('./Backend/routes/auth');
 app.use('/api/auth', authRoutes);
+
