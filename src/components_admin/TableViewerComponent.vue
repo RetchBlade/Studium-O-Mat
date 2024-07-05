@@ -12,9 +12,8 @@
       class="filter-input"
     />
 
-    <button @click="showAddForm = !showAddForm" class="toggle-form-button">
-      {{ showAddForm ? 'Formular schließen' : 'Neuen Datensatz hinzufügen' }}
-    </button>
+    <!-- Toggle button for Add form -->
+    <button @click="toggleAddForm" class="toggle-form-button">Neuen Datensatz hinzufügen</button>
 
     <!-- Add form -->
     <div v-if="showAddForm" class="add-form">
@@ -28,6 +27,7 @@
       </form>
     </div>
 
+    <!-- Data table -->
     <table class="data-table">
       <thead>
         <tr>
@@ -52,7 +52,7 @@
     <div v-if="editMode" class="edit-form">
       <h3>Datensatz bearbeiten</h3>
       <form @submit.prevent="updateItem">
-        <div v-for="(key, index) in Object.keys(editedItem)" :key="index" class="form-field">
+        <div v-for="(key, index) in editableColumns" :key="index" class="form-field">
           <label :for="key">{{ key }}</label>
           <input v-model="editedItem[key]" :id="key" class="form-input" />
         </div>
@@ -71,22 +71,23 @@ export default {
   props: {
     title: String,
     description: String,
-    apiEndpoint: String,
-    apiInsert: String,
-    apiUpdate: String,
-    apiDelete: String,
-    tableColumns: Array,
-    newItemTemplate: Object
+    apiEndpoint: String, // API-Endpunkt für die Datenabruf
+    apiInsert: String,   // API-Endpunkt für das Hinzufügen von Daten
+    apiUpdate: String,   // API-Endpunkt für das Aktualisieren von Daten
+    apiDelete: String,   // API-Endpunkt für das Löschen von Daten
+    tableColumns: Array, // Spalten für die Tabelle
+    newItemTemplate: Object, // Vorlage für neue Elemente
+    editableColumns: Array // Felder, die im Bearbeitungsformular bearbeitbar sein sollen
   },
   data() {
     return {
-      tableData: [], // Holds the fetched data from the API
-      filterText: '', // Holds the filter text entered by the user
-      filteredData: [], // Holds the filtered data to be displayed
-      showAddForm: false, // Controls the visibility of the add form
-      newItem: { ...this.newItemTemplate }, // Holds the data for the new item to be added
-      editMode: false, // Flag to indicate if editing mode is active
-      editedItem: {} // Holds the data for the item being edited
+      tableData: [], // Gehaltene abgerufene Daten von API
+      filterText: '', // Hält den Filtertext vom Benutzer eingegeben
+      filteredData: [], // Gehaltene gefilterte Daten zum Anzeigen
+      showAddForm: false, // Steuert die Sichtbarkeit des Hinzufügen-Formulars
+      newItem: { ...this.newItemTemplate }, // Hält Daten für das neue hinzuzufügende Element
+      editMode: false, // Kennzeichnung, ob der Bearbeitungsmodus aktiv ist
+      editedItem: {} // Hält Daten für das bearbeitete Element
     };
   },
   async mounted() {
@@ -98,9 +99,9 @@ export default {
         const response = await fetch(this.apiEndpoint);
         const data = await response.json();
         this.tableData = data;
-        this.filteredData = data; // Initially display all data
+        this.filteredData = data; // Anfangs alle Daten anzeigen
       } catch (error) {
-        console.error(`Error loading data from ${this.apiEndpoint}:`, error);
+        console.error(`Fehler beim Laden der Daten von ${this.apiEndpoint}:`, error);
       }
     },
     formatValue(value) {
@@ -117,12 +118,8 @@ export default {
     },
     editItem(item) {
       this.editMode = true;
-      // Create a copy of the item for editing with only 'frage' and 'studiengänge' fields
-      this.editedItem = {
-        _id: item._id,
-        frage: item.frage,
-        studiengänge: item.studiengänge
-      };
+      // Kopie des Elements zum Bearbeiten erstellen
+      this.editedItem = { ...item };
     },
     async updateItem() {
       try {
@@ -134,19 +131,19 @@ export default {
           body: JSON.stringify(this.editedItem)
         });
         if (response.ok) {
-          // Update tableData and filteredData with updated item
+          // Update tableData und filteredData mit aktualisiertem Element
           const updatedItem = await response.json();
           const index = this.tableData.findIndex(item => item._id === updatedItem._id);
           if (index !== -1) {
             this.tableData.splice(index, 1, updatedItem);
-            this.filteredData = [...this.tableData]; // Update filteredData as well
+            this.filteredData = [...this.tableData]; // Auch filteredData aktualisieren
           }
           this.cancelEdit();
         } else {
-          console.error('Error updating item:', response.statusText);
+          console.error('Fehler beim Aktualisieren des Elements:', response.statusText);
         }
       } catch (error) {
-        console.error('Error updating item:', error);
+        console.error('Fehler beim Aktualisieren des Elements:', error);
       }
     },
     async deleteItem(item) {
@@ -156,14 +153,14 @@ export default {
             method: 'DELETE'
           });
           if (response.ok) {
-            // Remove item from tableData and filteredData
+            // Element aus tableData und filteredData entfernen
             this.tableData = this.tableData.filter(data => data._id !== item._id);
-            this.filteredData = [...this.tableData]; // Update filteredData as well
+            this.filteredData = [...this.tableData]; // Auch filteredData aktualisieren
           } else {
-            console.error('Error deleting item:', response.statusText);
+            console.error('Fehler beim Löschen des Elements:', response.statusText);
           }
         } catch (error) {
-          console.error('Error deleting item:', error);
+          console.error('Fehler beim Löschen des Elements:', error);
         }
       }
     },
@@ -193,18 +190,25 @@ export default {
           const newItem = await response.json();
           this.tableData.push(newItem);
           this.filteredData.push(newItem);
-          this.showAddForm = false; // Hide the add form
+          this.showAddForm = false; // Formular verstecken
           window.location.reload(); // Reload the page after successful insertion
         } else {
-          console.error('Error adding item:', response.statusText);
+          console.error('Fehler beim Hinzufügen des Elements:', response.statusText);
         }
       } catch (error) {
-        console.error('Error adding item:', error);
+        console.error('Fehler beim Hinzufügen des Elements:', error);
       }
     },
     cancelEdit() {
       this.editMode = false;
       this.editedItem = {};
+    },
+    toggleAddForm() {
+      this.showAddForm = !this.showAddForm;
+      // Optional: Reset newItem object when toggling form visibility
+      if (!this.showAddForm) {
+        this.newItem = { ...this.newItemTemplate };
+      }
     }
   }
 };

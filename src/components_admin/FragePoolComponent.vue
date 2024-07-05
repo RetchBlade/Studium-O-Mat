@@ -10,6 +10,7 @@
       apiDelete="http://localhost:5000/api/quiz/deletequest"
       :tableColumns="['frage', 'studiengänge']"
       :newItemTemplate="{ frage: '', studiengänge: [] }"
+      :editableColumns="['frage', 'studiengänge']"
     />
   </div>
 </template>

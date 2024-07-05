@@ -4,7 +4,12 @@
       <MongoDBTableViewer
       title="Benutzerliste"
         description="Anpassungen der Benutzer."
-        apiEndpoint=""
+        apiEndpoint="http://localhost:5000/api/user/readuser"
+        apiInsert=""
+        apiUpdate=""
+        apiDelete=""
+        :tableColumns="['email', 'isAdmin']"
+        :editableColumns="['email']"
       />
   </div>
 </template>
