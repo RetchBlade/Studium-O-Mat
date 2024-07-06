@@ -9,6 +9,7 @@ import StudiumOMatPage from './components_Page/StudiumOMatPage.vue';
 import QuizPage from './components_Page/QuizPage.vue';
 import ScorePage from './components_Page/ScorePage.vue';
 import AdminPage from './components_Page/AdminPage';
+import MajorsPage from '@/components_Page/MajorsPage.vue'; 
 import AdminDash from './components_admin/DashboardComponent.vue';
 import AdminUser from './components_admin/UserComponent.vue';
 import AdminFragen from './components_admin/FragePoolComponent.vue';
@@ -21,12 +22,14 @@ const routes = [
     { path: '/', component: HomePage },
     { path: '/about', component: AboutPage },
     { path: '/studiumOMat', component: StudiumOMatPage },
+    { path: '/MajorsPage', component: MajorsPage},
     { path: '/quiz', component: QuizPage },
     { path: '/score', component: ScorePage },
     { path: '/admin', component: AdminPage, children: [
         { path: 'dashboard', component: AdminDash },
         { path: 'users', component: AdminUser },
         { path: 'fragen', component: AdminFragen },
+
     ] },
 ];
 

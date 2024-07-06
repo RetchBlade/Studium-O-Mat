@@ -20,6 +20,9 @@
             <li class="nav-item">
               <RouterLink to="/studiumOMat" class="nav-link">Studium-O-Mat</RouterLink>
             </li>
+            <li class="nav-item">
+              <RouterLink to="/MajorsPage" class="nav-link">Studiengänge</RouterLink>
+            </li>
           </ul>
           <div class="user_option">
             <button class="login-button" @mouseover="startMotion" @mouseleave="endMotion" @click="openLoginModal">

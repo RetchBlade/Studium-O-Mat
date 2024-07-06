@@ -14,7 +14,7 @@
     <template v-if="!isAdminRoute">
       <!-- InfoSection-Komponente wird gerendert -->
       <InfoSection/>
-      
+
       <!-- FooterSection-Komponente wird gerendert -->
       <FooterSection/>
     </template>
@@ -30,11 +30,11 @@ import FooterSection from '@/components_Section/FooterSection.vue' // Importiere
 export default {
   name: 'App', // Name der Hauptkomponente
 
-  components: { // Registriere die importierten Komponenten
+  components: { // Registriere die importierten Komponentens
       HeaderSection,
       LoginModal,
       InfoSection,
-      FooterSection,
+      FooterSection
   },
 
   data() { // Datenobjekt für die Hauptkomponente
