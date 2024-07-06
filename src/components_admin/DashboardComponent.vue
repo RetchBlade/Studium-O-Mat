@@ -5,14 +5,16 @@
     <!-- Statistiken für Benutzer und Fragen -->
     <div class="stats">
       <div class="stat-box">
-        <h2><RouterLink to="/admin/users" class="nav-link">Benutzeranzahl</RouterLink></h2>
+        <h2><RouterLink to="/admin/users" class="nav-link">Anzahl der Benuzter</RouterLink></h2>
         <p>{{ userCount }}</p>
       </div>
       <div class="stat-box">
-        <h2><RouterLink to="/admin/fragen" class="nav-link">Fragenanzahl</RouterLink></h2>
+        <h2><RouterLink to="/admin/fragen" class="nav-link">Anzahl  der Fragen</RouterLink></h2>
         <p>{{ questionCount }}</p>
       </div>
     </div>
+
+    <p>Weitere Features Folgen in der Zukunft...</p>
   </div>
 </template>
 
@@ -71,7 +73,7 @@ export default {
 }
 
 .nav-link {
-  color: #333; /* Ändere die Farbe nach Bedarf */
-  text-decoration: none; /* Entferne die Unterstreichung, wenn gewünscht */
+  color: #333; 
+  text-decoration: none; 
 }
 </style>
