@@ -15,6 +15,7 @@
           </div>
         </div>
       </div>
+    </div>
 
       <div class="detail-box">
         <h2>{{ aboutTitle }}</h2>
