@@ -116,7 +116,7 @@ export default {
 .header_section .user_option {
   display: flex;
   align-items: center;
-  margin-left: auto; /* Butonu sağ tarafa yerleştir */
+  margin-left: auto;
 }
 
 .header_section .user_option a {
@@ -182,27 +182,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-toggler {
-  outline: none;
-}
-
-.custom_nav-container .navbar-toggler .navbar-toggler-icon {
-  background-image: url('@/assets/menu.png');
-  background-size: 30px;
-  width: 32px;
-  height: 32px;
-}
-
-.lg_toggl-btn {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  width: 56px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.lg_toggl-btn:focus {
-  outline: none;
+  display: none;
 }
 
 .login-button {
@@ -247,23 +227,15 @@ a:focus {
 }
 
 #navbarSupportedContent {
-  transform: translateX(100vw);
-  opacity: 0;
+  transform: translateX(0);
+  opacity: 1;
   transition: all 0.3s ease-in;
   justify-content: space-between;
   align-items: center;
 }
 
-#navbarSupportedContent.show {
-  transform: translateX(0);
-  opacity: 1;
-}
-
 .custom_menu-btn button {
-  margin-top: 12px;
-  outline: none;
-  border: none;
-  background-color: transparent;
+  display: none;
 }
 
 .custom_menu-btn button span {
@@ -308,7 +280,7 @@ a:focus {
     left: 0;
     width: 100%;
     max-height: calc(100vh - 70px); 
-    background-color: #d3cbf7;;
+    background-color: #d3cbf7;
     transition: transform 0.3s ease-in-out;
     z-index: 9999;
     transform: translateY(-100%); 
@@ -331,17 +303,18 @@ a:focus {
   }
 
   .user_option {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .login-button {
+    margin: auto;
+  }
+
+  .custom_nav-container .navbar-toggler {
+    display: block;
+  }
 }
-
-.login-button {
-  margin: auto;
-}
-
-}
-
-
 
 body.nav-open {
   overflow: hidden; 
