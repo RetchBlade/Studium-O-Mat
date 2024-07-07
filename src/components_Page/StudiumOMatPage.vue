@@ -17,25 +17,24 @@
                         <img src="@/assets/f1.png" alt="">
                       </div>
                       <div class="detail-box">
-                        <h5>
-                            Erklärung ?
-                        </h5>
                         <h3>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, qui molestias? Odit minima, commodi est ad, voluptate a facilis necessitatibus dolore, voluptatum voluptates nemo cumque provident dolor enim perferendis perspiciatis.
+                          Die Nutzung von Studium-O-Mat ist einfach und effektiv. Sobald Sie die Website besuchen, werden Ihnen verschiedene Fragen gestellt. 
+                          Diese Fragen zielen darauf ab, Ihre akademischen Interessen, Stärken und beruflichen Ziele zu erfassen. 
+                          </h3>
+                          <h3>
+                          Nachdem Sie die Fragen beantwortet haben, analysiert Studium-O-Mat Ihre Antworten und bietet Ihnen Empfehlungen für Studiengänge, die am besten zu Ihnen passen.
+                         Studium-O-Mat hat das Ziel, Ihnen bei einer der wichtigsten Entscheidungen in Ihrem Bildungsweg zu helfen. Diese Plattform führt Sie auf Ihrem Karriereweg und hilft Ihnen, den für Sie idealen Studiengang an der HSBO zu finden. 
+                         Sie spart Ihnen Zeit und macht den Entscheidungsprozess bewusster und informierter.
                         </h3>
+                        <h3>
+                        Die Wahl des richtigen Studiengangs ist entscheidend für Ihren Erfolg in Bildung und Karriere. 
+                        Wir werden Sie bei dieser wichtigen Entscheidung bestmöglich unterstützen und Ihnen helfen, den passenden Studiengang zu finden. Legen Sie jetzt los und machen Sie den Test !                      
+                       </h3>
                       </div>
                     </div>
                     <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       <div class="img-box">
                         <img src="@/assets/f2.png" alt="">
-                      </div>
-                      <div class="detail-box">
-                        <h5>
-                          Weitere Infos
-                        </h5>
-                        <h3>
-                          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi impedit similique porro enim. Beatae, repudiandae nemo laboriosam similique consequatur optio earum, neque expedita omnis excepturi velit minima pariatur odio debitis.
-                        </h3>
                       </div>
                     </div>
                   </div>
@@ -77,6 +76,7 @@
   </script>
   
   <style scoped>
+    
     
   </style>
   

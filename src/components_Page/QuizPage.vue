@@ -78,7 +78,7 @@ export default {
 .quiz-page {
   position: relative;
   background-color: #e5e5f8;
-  height: 100vh;
+  height: 120vh;
   display: flex;
   justify-content: center;
   align-items: center;
