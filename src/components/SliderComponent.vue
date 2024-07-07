@@ -160,7 +160,7 @@ font-size: 22px;
 
 
 .slider_section .carousel_btn-container {
-  width: 120px;
+  width: 130px;
   position: absolute;
   bottom: 0;
   display: flex;
@@ -186,7 +186,7 @@ background-color: #34396E;
 color: #ffffff;
 transition: all 0.3s;
 border: 1px solid transparent;
-border-radius: 30px;
+border-radius: 15px;
 
 
 }

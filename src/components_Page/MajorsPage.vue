@@ -148,17 +148,17 @@
   }
   
   .card-links {
-    margin-top: 10px;
-  }
-  
-  .card-links a {
-    color: #34396E;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .card-links a:hover {
-    text-decoration: underline;
-  }
+  margin-top: 10px;
+}
+
+.card-links a {
+  color: #34396E;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card-links a:hover {
+  text-decoration: underline;
+}
   </style>
   

@@ -50,6 +50,8 @@ export default {
 
 .experience_section .detail-box p {
 margin-top: 20px;
+font-size: 20px;
+
 }
 
 .experience_section .detail-box .btn-box {
@@ -57,15 +59,18 @@ display: -webkit-box;
 display: -ms-flexbox;
 display: flex;
 -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+flex-wrap: wrap;
 margin: 45px -5px 0 -5px;
+
 }
+
 
 .experience_section .detail-box .btn-box a {
 text-align: center;
 width: 165px;
-font-size: 15px;
+font-size: 17px;
 margin: 5px;
+
 }
 
 .experience_section .detail-box .btn-box .btn-1 {
@@ -75,8 +80,8 @@ background-color: #34396E;
 color: #ffffff;
 -webkit-transition: all 0.3s;
 transition: all 0.3s;
-border: 1px solid transparent;
-border-radius: 0;
+border: 2px solid transparent;
+border-radius: 15px;
 }
 
 .experience_section .detail-box .btn-box .btn-1:hover {
@@ -93,7 +98,7 @@ color: #ffffff;
 -webkit-transition: all 0.3s;
 transition: all 0.3s;
 border: 1px solid transparent;
-border-radius: 0;
+border-radius: 15px;
 }
 
 .experience_section .detail-box .btn-box .btn-2:hover {
