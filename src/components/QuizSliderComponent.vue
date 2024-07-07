@@ -98,17 +98,17 @@ export default {
     this.loadQuestions();
   },
   methods: {
-    async loadQuestions() {
+        async loadQuestions() {
       try {
         const response = await fetch('http://localhost:5000/api/quiz/readquest');
         const data = await response.json();
         
-        // Sortiere Fragen nach Studiengang
-        const informatikFragen = data.filter(q => q.studiengänge.includes('Informatik')).slice(0, 10);
-        const wirtschaftsinformatikFragen = data.filter(q => q.studiengänge.includes('Wirtschaftsinformatik')).slice(0, 10);
-        const elektrotechnikFragen = data.filter(q => q.studiengänge.includes('Elektrotechnik')).slice(0, 10);
+        // Fragen nach Studiengang filtern und zufällige Auswahl treffen
+        const informatikFragen = this.getRandomQuestions(data, 'Informatik', 10);
+        const wirtschaftsinformatikFragen = this.getRandomQuestions(data, 'Wirtschaftsinformatik', 10);
+        const elektrotechnikFragen = this.getRandomQuestions(data, 'Elektrotechnik', 10);
         
-        // Mische die Fragen
+        // Mische die Fragen aus allen Studiengängen
         this.questions = [...informatikFragen, ...wirtschaftsinformatikFragen, ...elektrotechnikFragen].sort(() => Math.random() - 0.5);
       } catch (error) {
         console.error('Error loading questions:', error);
@@ -149,6 +149,23 @@ export default {
           }
         });
       }
+    },
+    getRandomQuestions(data, studiengang, count) {
+          // Filtere Fragen für den spezifischen Studiengang
+          const filteredQuestions = data.filter(q => q.studiengänge.includes(studiengang));
+
+          // Mische die Fragen zufällig
+          const shuffledQuestions = this.shuffleArray(filteredQuestions);
+
+          // Wähle die ersten 'count' Fragen aus
+          return shuffledQuestions.slice(0, count);
+        },shuffleArray(array) {
+      // Mische das Array zufällig (Fisher-Yates Algorithmus)
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     },
     resetQuiz() {
       this.currentState = 2;
