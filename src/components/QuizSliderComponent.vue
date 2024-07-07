@@ -5,7 +5,7 @@
       <div class="quiz-section">
         <div v-if="questions.length > 0 && !showResults">
           <div class="counter">
-            <span>Frage {{ currentQuestionIndex + 1 }} von {{ questions.length }}</span>
+            <span>Frage {{ currentQuestionIndex + 1}} von {{ questions.length }}</span>
           </div>
           <h3>{{ questions[currentQuestionIndex].frage }}</h3>
           <button @click="loadNextQuestion" :able="isLastQuestion">{{ isLastQuestion ? 'Ergebnis anzeigen' : 'Nächste Frage' }}</button>
