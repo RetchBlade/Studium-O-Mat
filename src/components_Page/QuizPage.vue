@@ -161,15 +161,15 @@ export default {
 }
 
 .primary-card {
-  background-color: #8c5fc6; /* Primary color für die erste Karte */
+  background-color: #676dab; /* Primary color für die erste Karte */
 }
 
 .secondary-card {
-  background-color: #6c3fa7; /* Secondary color für die zweite Karte */
+  background-color: #454a85; /* Secondary color für die zweite Karte */
 }
 
 .success-card {
-  background-color: #5b3192; /* Success color für die dritte Karte */
+  background-color: #34396E; /* Success color für die dritte Karte */
 }
 
 .card-title {
