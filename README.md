@@ -13,7 +13,7 @@ npm run serve
 ### Backend starten
 ```
 zuerst module installieren
-    npm install jsonwebtoken bcrypt cors mongoose dotenv jwt-decode mdb-vue-ui-kit
+    npm install jsonwebtoken bcrypt cors mongoose dotenv jwt-decode mdb-vue-ui-kit chart.js
 starten des backend mit:
     node server.js
 ```

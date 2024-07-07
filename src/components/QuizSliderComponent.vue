@@ -3,21 +3,23 @@
     <img src="@/assets/banner.png" alt="Image" class="card-image">
     <div class="content-container">
       <div class="quiz-section">
-        <div v-if="questions.length > 0">
+        <div v-if="questions.length > 0 && !showResults">
+          <div class="counter">
+            <span>Frage {{ currentQuestionIndex + 1 }} von {{ questions.length }}</span>
+          </div>
           <h3>{{ questions[currentQuestionIndex].frage }}</h3>
-          <button @click="loadNextQuestion" :disabled="isLastQuestion">Nächste Frage</button>
+          <button @click="loadNextQuestion" :able="isLastQuestion">{{ isLastQuestion ? 'Ergebnis anzeigen' : 'Nächste Frage' }}</button>
         </div>
-        <div v-else>
-          <p>Loading...</p>
-        </div>
+        <!-- Kein "Loading..." mehr anzeigen, wenn Fragen geladen sind -->
       </div>
-      <div class="slider-container">
+      <div v-if="!showResults && questions.length > 0" class="slider-container">
         <div class="labels">
           <span v-for="(label, index) in labels" :key="index" class="label" :style="{ left: `${index * 25}%` }">
             {{ label }}
           </span>
         </div>
         <input
+          v-if="!showResults"
           type="range"
           v-model="currentState"
           min="0"
@@ -27,12 +29,30 @@
           class="slider"
         />
       </div>
+
+      <!-- Ergebnisabschnitt -->
+      <div v-if="showResults" class="results">
+        <h4>Ergebnis</h4>
+        <ul>
+          <li v-for="(points, studiengang) in points" :key="studiengang">
+            {{ studiengang }}: {{ points }} Punkte
+          </li>
+        </ul>
+        <!-- Hier integrieren wir das Kuchendiagramm -->
+        <result-chart :points="points"></result-chart>
+        <button @click="resetQuiz">Zurück zum Start</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import ResultChart from './QuizResultChart.vue';
+
 export default {
+  components: {
+    ResultChart
+  },
   data() {
     return {
       currentState: 2,
@@ -44,7 +64,13 @@ export default {
         'Stimme zu'
       ],
       questions: [],
-      currentQuestionIndex: 0
+      currentQuestionIndex: 0,
+      points: {
+        Informatik: 0,
+        Wirtschaftsinformatik: 0,
+        Elektrotechnik: 0
+      },
+      showResults: false // Hinzugefügt, um die Ergebnisse anzuzeigen
     };
   },
   computed: {
@@ -76,15 +102,66 @@ export default {
       try {
         const response = await fetch('http://localhost:5000/api/quiz/readquest');
         const data = await response.json();
-        this.questions = data;
+        
+        // Sortiere Fragen nach Studiengang
+        const informatikFragen = data.filter(q => q.studiengänge.includes('Informatik')).slice(0, 10);
+        const wirtschaftsinformatikFragen = data.filter(q => q.studiengänge.includes('Wirtschaftsinformatik')).slice(0, 10);
+        const elektrotechnikFragen = data.filter(q => q.studiengänge.includes('Elektrotechnik')).slice(0, 10);
+        
+        // Mische die Fragen
+        this.questions = [...informatikFragen, ...wirtschaftsinformatikFragen, ...elektrotechnikFragen].sort(() => Math.random() - 0.5);
       } catch (error) {
         console.error('Error loading questions:', error);
       }
     },
     loadNextQuestion() {
+      // Punkte basierend auf dem aktuellen Slider-Status aktualisieren
+      const pointsMap = {
+        0: 1,
+        1: 2,
+        2: 0,
+        3: 3,
+        4: 4
+      };
+
+      const currentQuestion = this.questions[this.currentQuestionIndex];
+      const currentPoints = pointsMap[this.currentState];
+
+      // Punkte für jeden Studiengang in der aktuellen Frage aktualisieren
+      currentQuestion.studiengänge.forEach(studiengang => {
+        if (this.points[studiengang] !== undefined) {
+          this.points[studiengang] += currentPoints;
+        }
+      });
+
       if (this.currentQuestionIndex < this.questions.length - 1) {
         this.currentQuestionIndex++;
+        // Slider auf neutralen Zustand zurücksetzen
+        this.currentState = 2;
+      } else {
+        // Alle Fragen beantwortet, Ergebnisse anzeigen
+        this.showResults = true;
+        
+        // Punkte für die letzte Frage hinzufügen
+        currentQuestion.studiengänge.forEach(studiengang => {
+          if (this.points[studiengang] !== undefined) {
+            this.points[studiengang] += pointsMap[this.currentState];
+          }
+        });
       }
+    },
+    resetQuiz() {
+      this.currentState = 2;
+      this.currentQuestionIndex = 0;
+      this.points = {
+        Informatik: 0,
+        Wirtschaftsinformatik: 0,
+        Elektrotechnik: 0
+      };
+      this.showResults = false;
+      
+      // Seite neu laden
+      window.location.reload();
     }
   }
 };
@@ -255,40 +332,37 @@ input[type=range]::-moz-range-thumb:active {
 
 .quiz-section {
   text-align: center;
-  margin-top: 50px;
-  padding: 20px;
-  width: 900px;
+  margin-top: 20px;
 }
 
-.quiz-section h3 {
-  font-size: 1.5rem;
+.counter {
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
-.quiz-section button {
-  padding: 10px 20px;
-  background-color: #6e60da;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.quiz-section button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.results {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  background: url('https://i.pinimg.com/originals/ec/bb/8b/ecbb8bfbb05ea1fdcf043ae1eb80adb2.jpg') no-repeat center center;
-  background-size: cover;
-  z-index: -1; /* Hintergrund hinter den Inhalt legen */
-  opacity: 0.3; /* Transparenz des Hintergrundbilds */
+}
+
+.results h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.results ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.results li {
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 </style>

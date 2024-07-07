@@ -37,23 +37,18 @@
       <button class="start-button" @click="startQuiz">Test starten</button>
     </div>
     <!-- Die QuizComponent wird nur gerendert, wenn das Quiz gestartet wurde -->
-    <div v-if="quizStarted" class="quiz-component-container">
-      <QuizComponent />
-    </div>
     <!-- Der QuizSlider wird nur gerendert, wenn das Quiz gestartet wurde -->
     <QuizSlider v-if="quizStarted"/>
   </div>
 </template>
 
 <script>
-import QuizComponent from '@/components/QuizComponent.vue';
 import QuizSlider from '@/components/QuizSliderComponent.vue';
 import { MDBCard, MDBCardBody, MDBCardTitle } from 'mdb-vue-ui-kit';
 
 export default {
   name: 'QuizPage',
   components: {
-    QuizComponent,
     QuizSlider,
     MDBCard,
     MDBCardBody,
