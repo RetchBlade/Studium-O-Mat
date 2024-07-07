@@ -32,7 +32,7 @@
       <thead>
         <tr>
           <th v-for="(key, index) in tableColumns" :key="index">{{ key }}</th>
-          <th>Actions</th>
+          <th>Aktionen</th>
         </tr>
       </thead>
       <tbody>
@@ -41,8 +41,8 @@
             {{ formatValue(item[key]) }}
           </td>
           <td class="table-cell">
-            <button @click="editItem(item)" class="action-button">Edit</button>
-            <button @click="deleteItem(item)" class="action-button">Delete</button>
+            <button @click="editItem(item)" class="action-button">Bearbeiten</button>
+            <button @click="deleteItem(item)" class="action-button">Löschen</button>
           </td>
         </tr>
       </tbody>
@@ -122,30 +122,32 @@ export default {
       this.editedItem = { ...item };
     },
     async updateItem() {
-      try {
-        const response = await fetch(`${this.apiUpdate}/${this.editedItem._id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(this.editedItem)
-        });
-        if (response.ok) {
-          // Update tableData und filteredData mit aktualisiertem Element
-          const updatedItem = await response.json();
-          const index = this.tableData.findIndex(item => item._id === updatedItem._id);
-          if (index !== -1) {
-            this.tableData.splice(index, 1, updatedItem);
-            this.filteredData = [...this.tableData]; // Auch filteredData aktualisieren
-          }
-          this.cancelEdit();
-        } else {
-          console.error('Fehler beim Aktualisieren des Elements:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Fehler beim Aktualisieren des Elements:', error);
+  try {
+    const response = await fetch(`${this.apiUpdate}/${this.editedItem._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.editedItem)
+    });
+    if (response.ok) {
+      // Update tableData und filteredData mit aktualisiertem Element
+      const updatedItem = await response.json();
+      const index = this.tableData.findIndex(item => item._id === updatedItem._id);
+      if (index !== -1) {
+        this.tableData.splice(index, 1, updatedItem);
+        this.filteredData = [...this.tableData]; // Auch filteredData aktualisieren
       }
-    },
+      this.cancelEdit();
+    } else {
+      alert('Fehler beim Aktualisieren des Elements: ' + response.statusText);
+      console.error('Fehler beim Aktualisieren des Elements:', response.statusText);
+    }
+  } catch (error) {
+    alert('Fehler beim Aktualisieren des Elements: ' + error.message);
+    console.error('Fehler beim Aktualisieren des Elements:', error);
+  }
+},
     async deleteItem(item) {
       if (confirm('Möchten Sie diesen Eintrag wirklich löschen?')) {
         try {

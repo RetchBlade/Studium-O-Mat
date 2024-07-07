@@ -33,7 +33,7 @@
                     <a class="nav-link"><router-link to='/studiumOMat'>Studium OMat</router-link></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><router-link to='/quiz'>Quiz</router-link></a>
+                    <a class="nav-link"><router-link to='/quiz'>Studienwahltest</router-link></a>
                   </li>
                 </ul>
               </div>

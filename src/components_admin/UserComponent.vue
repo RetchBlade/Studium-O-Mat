@@ -5,10 +5,11 @@
       title="Benutzerliste"
         description="Anpassungen der Benutzer."
         apiEndpoint="http://localhost:5000/api/user/readuser"
-        apiInsert=""
-        apiUpdate=""
-        apiDelete=""
-        :tableColumns="['email', 'isAdmin']"
+        apiInsert="http://localhost:5000/api/auth/register"
+        apiUpdate="http://localhost:5000/api/user/updateuser"
+        apiDelete="http://localhost:5000/api/user/deleteuser"
+        :newItemTemplate="{ email: '', password: ''}"
+        :tableColumns="['email']"
         :editableColumns="['email']"
       />
   </div>
