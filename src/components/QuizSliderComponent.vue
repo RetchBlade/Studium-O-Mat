@@ -35,7 +35,7 @@
         <h4>Ergebnis</h4>
         <ul>
           <li v-for="(points, studiengang) in points" :key="studiengang">
-            {{ studiengang }}: {{ points }} Punkte
+            {{ studiengang }}: {{ getPercentage(studiengang) }} % 
           </li>
         </ul>
         <!-- Hier integrieren wir das Kuchendiagramm -->
@@ -66,6 +66,11 @@ export default {
       questions: [],
       currentQuestionIndex: 0,
       points: {
+        Informatik: 0,
+        Wirtschaftsinformatik: 0,
+        Elektrotechnik: 0
+      },
+      pointsPercent: {
         Informatik: 0,
         Wirtschaftsinformatik: 0,
         Elektrotechnik: 0
@@ -115,41 +120,32 @@ export default {
       }
     },
     loadNextQuestion() {
-      // Punkte basierend auf dem aktuellen Slider-Status aktualisieren
-      const pointsMap = {
-        0: 1,
-        1: 2,
-        2: 0,
-        3: 3,
-        4: 4
-      };
+  const pointsMap = {
+    0: 1,
+    1: 2,
+    2: 0,
+    3: 3,
+    4: 4
+  };
 
-      const currentQuestion = this.questions[this.currentQuestionIndex];
-      const currentPoints = pointsMap[this.currentState];
+  const currentQuestion = this.questions[this.currentQuestionIndex];
+  const currentPoints = pointsMap[this.currentState];
 
-      // Punkte für jeden Studiengang in der aktuellen Frage aktualisieren
-      currentQuestion.studiengänge.forEach(studiengang => {
-        if (this.points[studiengang] !== undefined) {
-          this.points[studiengang] += currentPoints;
-        }
-      });
+  currentQuestion.studiengänge.forEach(studiengang => {
+    if (this.points[studiengang] !== undefined) {
+      this.points[studiengang] += currentPoints;
+    }
+  });
 
-      if (this.currentQuestionIndex < this.questions.length - 1) {
-        this.currentQuestionIndex++;
-        // Slider auf neutralen Zustand zurücksetzen
-        this.currentState = 2;
-      } else {
-        // Alle Fragen beantwortet, Ergebnisse anzeigen
-        this.showResults = true;
-        
-        // Punkte für die letzte Frage hinzufügen
-        currentQuestion.studiengänge.forEach(studiengang => {
-          if (this.points[studiengang] !== undefined) {
-            this.points[studiengang] += pointsMap[this.currentState];
-          }
-        });
-      }
-    },
+  console.log(`Points after question ${this.currentQuestionIndex + 1}:`, this.points);
+
+  if (this.currentQuestionIndex < this.questions.length - 1) {
+    this.currentQuestionIndex++;
+    this.currentState = 2;
+  } else {
+    this.showResults = true;
+  }
+},
     getRandomQuestions(data, studiengang, count) {
           // Filtere Fragen für den spezifischen Studiengang
           const filteredQuestions = data.filter(q => q.studiengänge.includes(studiengang));
@@ -179,7 +175,27 @@ export default {
       
       // Seite neu laden
       window.location.reload();
-    }
+    },
+    getPercentage(studiengang) {
+  const totalPoints = Object.values(this.points).reduce((sum, points) => sum + points, 0);
+
+  if (totalPoints === 0) {
+    console.error('Error: Total points are zero.');
+    return '0.00';
+  }
+
+  const studiengangPoints = this.points[studiengang] || 0;
+  const percentage = ((studiengangPoints / totalPoints) * 100).toFixed(2);
+
+  if (isNaN(percentage)) {
+    console.error(`Error: Invalid percentage calculation for ${studiengang} with points ${studiengangPoints} and total ${totalPoints}`);
+    return '0.00';
+  }
+
+  return percentage;
+}
+
+
   }
 };
 </script>
