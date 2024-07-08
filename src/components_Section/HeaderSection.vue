@@ -2,16 +2,18 @@
   <header class="header_section">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg custom_nav-container">
-        <a class="navbar-brand">
-          <img src="@/assets/logo_ohneHintergrund.png" alt="" />
-          <span><RouterLink to="/" class="nav-link">Studium-O-Mat</RouterLink></span>
-        </a>
+        <li class="navbar-brand">
+          <img src="@/assets/logo_ohneHintergrund.png" alt="Logo" class="logo">
+          
+          <!-- Anpassung für den Studium-O-Mat Link -->
+          <span class="navbar-brand-text"><RouterLink to="/" class="nav-link study-link">Studium-O-Mat</RouterLink></span>
+        </li>
         <button class="navbar-toggler" type="button" @click="toggleMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div :class="['collapse', 'navbar-collapse', { 'show': isMenuOpen }]" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
               <RouterLink to="/" class="nav-link">Home</RouterLink>
             </li>
             <li class="nav-item">
@@ -24,19 +26,10 @@
               <RouterLink to="/MajorsPage" class="nav-link">Studiengänge</RouterLink>
             </li>
           </ul>
-          <div class="user_option">
+          <div class="user_option ml-auto"> <!-- ml-auto für rechtsbündige Ausrichtung des Logins -->
             <button class="login-button" @mouseover="startMotion" @mouseleave="endMotion" @click="openLoginModal">
               <span class="login-text">Login</span>
               <div class="motion-line" v-show="motionActive"></div>
-            </button>
-          </div>
-        </div>
-        <div>
-          <div class="custom_menu-btn">
-            <button @click="toggleMenu">
-              <span class="s-1"></span>
-              <span class="s-2"></span>
-              <span class="s-3"></span>
             </button>
           </div>
         </div>
@@ -72,28 +65,6 @@ export default {
 </script>
 
 <style scoped>
-.login-button:hover {
-  background-color: #726FB2;
-}
-
-.active {
-  color: white;
-}
-
-.hero_area {
-  height: calc(100vh - 30px);
-  background: linear-gradient(to right, #1a2e35 55%, #1cbbb4 55%);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.sub_page .hero_area {
-  height: auto;
-  background: none;
-  background-color: #1a2e35;
-}
-
 .header_section {
   position: fixed;
   top: 0;
@@ -101,92 +72,48 @@ export default {
   width: 100%;
   z-index: 9999;
   overflow-x: hidden;
-  background-color: #34396E;
+  background: linear-gradient(to right, #34396E, #726FB2);
+  padding: 10px 0;
 }
 
-.header_section .container-fluid {
-  padding-right: 25px;
-  padding-left: 25px;
-}
-
-.header_section .nav_container {
-  margin: 0 auto;
-}
-
-.header_section .user_option {
+.navbar-brand {
   display: flex;
   align-items: center;
-  margin-left: auto;
 }
 
-.header_section .user_option a {
-  display: flex;
-  color: #ffffff;
-  align-items: center;
+.logo {
+  width: 50px;
+  margin-right: 10px;
 }
 
-.header_section .user_option a img {
-  min-width: 20px;
-  height: 20px;
-  margin-right: 5px;
+.navbar-brand .navbar-brand-text {
+  font-weight: bold;
+  font-size: 24px;
+  color: #ffffff; /* Farbe für den Text neben dem Logo */
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link {
   padding: 10px 15px;
   color: #ffffff;
   text-align: center;
+  transition: color 0.3s ease-in-out;
 }
 
-a,
-a:hover,
-a:focus {
-  text-decoration: none;
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link:hover {
+  color: #9d97d8; /* Farbwechsel bei Hover */
 }
 
-a:hover,
-a:focus {
-  color: initial;
+/* Anpassung für den Studium-O-Mat Link */
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .study-link {
+  color: #ffffff; /* Farbe Weiß für normalen Zustand */
 }
 
-.btn,
-.btn:focus {
-  outline: none !important;
-  box-shadow: none;
-}
-
-.custom_nav-container form {
-  padding-top: 7px;
-}
-
-.navbar-brand {
-  margin-right: 5%;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-brand img {
-  width: 35px;
-  margin-right: 5px;
-}
-
-.navbar-brand span {
-  font-weight: bold;
-  color: #ffffff;
-  font-size: 24px;
-}
-
-.custom_nav-container {
-  z-index: 99999;
-  padding: 0;
-  height: 70px;
-}
-
-.custom_nav-container .navbar-toggler {
-  display: none;
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .study-link:hover {
+  color: #9d97d8; /* Farbwechsel bei Hover, wie die anderen Links */
 }
 
 .login-button {
-  background-color: #726FB2;
+  background-color: #4d4787;
   color: white;
   border: none;
   padding: 0.5rem 2rem;
@@ -194,21 +121,12 @@ a:focus {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  transition: color 0.3s ease-in-out;
-}
-
-.nav-link {
-  color: #ffffff !important;
-  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s ease-in-out;
 }
 
 .login-button:hover {
-  color: #4d4787;
-}
-
-.login-text {
-  position: relative;
-  z-index: 1;
+  background-color: #766faf;
+  color: white;
 }
 
 .motion-line {
@@ -226,76 +144,77 @@ a:focus {
   transform: scaleX(1);
 }
 
-#navbarSupportedContent {
-  transform: translateX(0);
-  opacity: 1;
-  transition: all 0.3s ease-in;
-  justify-content: space-between;
-  align-items: center;
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+  color: #ffffff;
 }
 
-.custom_menu-btn button {
-  display: none;
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+  outline: none;
+  color: #4d4787;
 }
 
-.custom_menu-btn button span {
-  display: block;
-  width: 34px;
-  height: 4px;
-  background-color: #fff;
-  margin: 7px 0;
-  transition: all 0.3s;
-  border-radius: 10px;
+.navbar-toggler-icon {
+  background-color: #ffffff;
+  width: 25px;
+  height: 2px;
+  display: inline-block;
+  position: relative;
 }
 
-.custom_menu-btn .s-2 {
-  transition: all 0.1s;
-  width: 17px;
-  margin-left: auto;
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  position: absolute;
+  left: 0;
+  transition: transform 0.2s ease;
 }
 
-.menu_btn-style button .s-1 {
-  transform: rotate(45deg) translate(8px, 8px);
+.navbar-toggler-icon::before {
+  top: -8px;
 }
 
-.menu_btn-style button .s-2 {
-  transform: translateX(100px);
+.navbar-toggler-icon::after {
+  bottom: -8px;
 }
 
-.menu_btn-style button .s-3 {
-  transform: rotate(-45deg) translate(8px, -8px);
+.navbar-toggler.open .navbar-toggler-icon::before {
+  transform: translateY(8px) rotate(-45deg);
 }
 
-.navbar-brand img {
-  width: auto;
-  height: 60px;
-  margin-right: 10px;
+.navbar-toggler.open .navbar-toggler-icon::after {
+  transform: translateY(-8px) rotate(45deg);
 }
 
 @media (max-width: 1000px) {
   .navbar-collapse {
-    display: none; 
+    display: none;
     position: fixed;
     top: 70px;
     left: 0;
     width: 100%;
-    max-height: calc(100vh - 70px); 
+    max-height: calc(100vh - 70px);
     background-color: #d3cbf7;
     transition: transform 0.3s ease-in-out;
     z-index: 9999;
-    transform: translateY(-100%); 
-    overflow-y: auto; 
+    transform: translateY(-100%);
+    overflow-y: auto;
   }
 
   .navbar-collapse.show {
-    display: block; 
-    transform: translateY(0); 
+    display: block;
+    transform: translateY(0);
   }
 
   .navbar-nav {
     display: flex;
     flex-direction: column;
-    padding-top: 20px; 
+    padding-top: 20px;
   }
 
   .nav-item {
@@ -317,6 +236,6 @@ a:focus {
 }
 
 body.nav-open {
-  overflow: hidden; 
+  overflow: hidden;
 }
 </style>

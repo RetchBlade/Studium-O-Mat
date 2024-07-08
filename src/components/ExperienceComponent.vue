@@ -21,10 +21,8 @@
                 Wir helfen dir, die beste Entscheidung für deine akademische und berufliche Zukunft zu treffen.
                  Beginne noch heute und entdecke die vielfältigen Möglichkeiten an der Hochschule Bochum. Lass uns gemeinsam deinen Weg gestalten und deine Träume verwirklichen.
 
-            </p>
-            <div class="btn-box">
-              <a href="" class="btn-1">Read More</a>
-              <a href="" class="btn-2">Irgendwas</a>
+            </p><div class="btn-box">
+              <RouterLink to="/studiumOMat" class="nav-link btn-1">Mehr erfahren</RouterLink>
             </div>
           </div>
         </div>

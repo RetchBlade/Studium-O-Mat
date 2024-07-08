@@ -1,43 +1,27 @@
 <template>
   <div class="team-section bg-gray-100 py-12">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-8 mt-4">Unser Team</h2>
-      <h3>
-        Wir sind Informatikstudenten im vierten Semester an der Hochschule Bochum und kennen aus eigener Erfahrung die Schwierigkeiten bei der Wahl des richtigen Studienfachs. Wir haben festgestellt, dass es für Studieninteressierte oft nicht genügend Unterstützung gibt, um diese Entscheidung zu erleichtern. Aus diesem Grund haben wir beschlossen, aufgrund unserer eigenen Erfahrungen anderen Studieninteressierten helfen zu wollen
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Unser Team</h2>
+      <p class="text-lg text-gray-700 leading-relaxed mb-12">
+        Wir sind Informatikstudenten im vierten Semester an der Hochschule Bochum und kennen aus eigener Erfahrung die Schwierigkeiten bei der Wahl des richtigen Studienfachs. Wir haben festgestellt, dass es für Studieninteressierte oft nicht genügend Unterstützung gibt, um diese Entscheidung zu erleichtern. Aus diesem Grund haben wir beschlossen, aufgrund unserer eigenen Erfahrungen anderen Studieninteressierten zu helfen.
         Mit diesem Ziel vor Augen haben wir eine Plattform entwickelt, die angehenden Studenten bei der Auswahl des passenden Studiengangs unterstützt. 
-          Mit unserem fundierten Wissen und Verständnis möchten wir dazu beitragen, dass zukünftige Studenten sicherer in ihr Universitätsleben starten können.
-      </h3>
-      <MDBCardGroup class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <MDBCard v-for="(member, index) in teamMembers" :key="index" class="mb-4">
-          <MDBCardImg :src="member.image" top alt="Team Member" class="w-full h-48 md:h-64 object-cover object-center"/>
-          <MDBCardBody>
-            <MDBCardTitle>{{ member.name }}</MDBCardTitle>
-            <MDBCardText>
-              {{ member.role }}
-            </MDBCardText>
-          </MDBCardBody>
-          <MDBCardFooter>
-            <small class="text-muted"> </small>
-          </MDBCardFooter>
-        </MDBCard>
-      </MDBCardGroup>
+        Mit unserem fundierten Wissen und Verständnis möchten wir dazu beitragen, dass zukünftige Studenten sicherer in ihr Universitätsleben starten können.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
+        <div v-for="(member, index) in teamMembers" :key="index" class="overflow-hidden bg-white shadow-lg rounded-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+          <img :src="member.image" alt="Team Member" class="w-full h-64 object-cover object-center rounded-t-lg">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">{{ member.name }}</h3>
+            <p class="text-gray-600">{{ member.role }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { MDBCardGroup, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImg, MDBCardFooter } from 'mdb-vue-ui-kit';
-
 export default {
-  components: {
-    MDBCardGroup,
-    MDBCard,
-    MDBCardBody,
-    MDBCardTitle,
-    MDBCardText,
-    MDBCardImg,
-    MDBCardFooter
-  },
   data() {
     return {
       teamMembers: [
@@ -54,43 +38,76 @@ export default {
 
 <style scoped>
 .team-section {
-  padding-top: 10rem; /* Reduzierter oberer Abstand für den Titel */
-  padding-bottom: 4rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .team-section h2 {
   color: #333;
+  padding-top: 4rem;
+
+
 }
 
-.MDBCardGroup {
-  margin-top: 10rem; /* Abstand zwischen dem Titel und der ersten Karte */
-  margin-bottom: 10rem;
+.team-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  padding-bottom: 3rem;
+
 }
 
-/* Stil für einzelne Karten */
-.MDBCard {
-  transition: transform 0.7s ease-in-out;
-  margin-bottom: 20px; /* Abstand zwischen den Karten */
+.grid-cols-1 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.MDBCard:hover {
-  transform: translateY(-0.5rem);
+.sm\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.MDBCardImg {
-  border-radius: 50%;
-  object-fit: cover;
+.gap-x-8 {
+  column-gap: 2rem; /* Horizontaler Abstand zwischen den Karten */
 }
 
-h2 {
-  font-weight: normal;
-  font-size: 50px;
-  padding-bottom: 50px;
+.gap-y-12 {
+  row-gap: 1.2rem; /* Vertikaler Abstand zwischen den Karten */
 }
 
-h3 {
-  font-weight: light;
-  font-size: 25px;
-  padding-bottom: 150px;
+.text-lg {
+  font-size: 18px;
+}
+
+.text-xl {
+  font-size: 20px;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-gray-600 {
+  color: #666;
+}
+
+.hover\:shadow-xl {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.transition {
+  transition: all 0.9s ease;
+}
+
+.transform {
+  transform: translateY(0);
+}
+
+.hover\:translate-y-1 {
+  transform: translateY(-1px);
+}
+
+.hover\:scale-105 {
+  transform: scale(1.05);
 }
 </style>

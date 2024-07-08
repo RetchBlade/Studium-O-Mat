@@ -125,7 +125,7 @@ align-items: center;
 position: relative;
 height: 600px;
 padding: 20px 0; /* Add padding to ensure the section has space */
-
+padding-top: 100px;
 }
 
 .slider_section .row {

@@ -49,6 +49,7 @@
 
 }
 
+
 @media (max-width: 767px) {
   .hero_area {
     background: none;
@@ -58,7 +59,8 @@
 
   .slider_section {
     text-align: center;
-    padding-bottom: 0;
+    padding-bottom: 300px;
+
   }
 
   .slider_section .detail-box {
@@ -139,7 +141,6 @@
   }
 }
 
-@media (max-width: 480px) {}
 
 @media (max-width: 420px) {
   .client_section .detail-box {
@@ -186,12 +187,25 @@
 @media (max-width: 360px) {
 .info_section{
   height:100%;
+}
+.slider_section {
+  text-align: center;
+  padding-bottom: 300px; /* Anpassung der Höhe des Sliders */
+  padding-top: 300px; /* Anpassung der Höhe des Sliders */
+}
+
+.slider_section .detail-box {
+  margin-top: 100px; /* Verschiebung der Detail-Box um 100px nach unten */
+}
+
+.slider_section .p{
+  margin-top: 100px; /* Verschiebung der Detail-Box um 100px nach unten */
+}
 
 }
 
 
 
-}
 
 @media (min-width: 1200px) {
   .container {

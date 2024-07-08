@@ -35,6 +35,9 @@
                   <li class="nav-item">
                     <a class="nav-link"><router-link to='/quiz'>Studienwahltest</router-link></a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link"><router-link to='/MajorsPage'>Studiengänge</router-link></a>
+                  </li>
                 </ul>
               </div>
             </div>

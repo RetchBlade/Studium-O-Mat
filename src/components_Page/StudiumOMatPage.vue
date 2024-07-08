@@ -1,34 +1,27 @@
 <template>
-  <div>
-    <div class="faq-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="detail-box">
-              <div class="heading-container">
-                <h2>Über Studium-O-Mat</h2>
-              </div>
-              <div class="faq-items">
-                <div class="faq-item" v-for="(faq, index) in faqs" :key="index">
-                  <div class="faq-question" @click="toggleAnswer(index)">
-                    <h3>{{ faq.question }} <span class="arrow" :class="{ 'arrow-down': faq.active }"></span></h3>
-                  </div>
-                  <transition name="fade">
-                    <div class="faq-answer" v-if="faq.active" key="answer">
-                      <p>{{ faq.answer }}</p>
-                    </div>
-                  </transition>
-                </div>
-              </div>
+  <div class="faq-section">
+    <div class="faq-card">
+      <div class="banner-image">
+        <img src="@/assets/banner.png" alt="Banner Image">
+      </div>
+      <div class="faq-content">
+        <h2>Über Studium-O-Mat</h2>
+        <div class="faq-items">
+          <div class="faq-item" v-for="(faq, index) in faqs" :key="index">
+            <div class="faq-question" @click="toggleAnswer(index)">
+              <h3>{{ faq.question }} <span class="arrow" :class="{ 'arrow-down': faq.active }"></span></h3>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="img-box">
-              <img src="@/assets/weblogoGross.png" alt="Logo">
-            </div>
+            <transition name="fade">
+              <div class="faq-answer" v-if="faq.active" key="answer">
+                <p>{{ faq.answer }}</p>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
+    </div>
+    <div class="logo-box">
+      <img src="@/assets/weblogoGross.png" alt="Logo">
     </div>
   </div>
 </template>
@@ -90,52 +83,75 @@ export default {
   }
 };
 </script>
+
 <style scoped>
-h2 {
-  font-size: 32px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 30px;
+.faq-section {
+  display: flex;
+  justify-content: space-between; /* Platz zwischen Fragen-Karten und Logo */
+  align-items: flex-start; /* Oben ausrichten */
+  padding: 40px 0;
+  padding-left: 90px;
+  margin-top: 90px;
 }
 
-.faq-section {
-  background-color: #f9f9fb;
-  padding: 60px 0;
+.faq-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  width: 60%; /* Breite der FAQ-Karte */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-left: 20px;
+}
+
+
+.banner-image img {
+  width: 100%;
+  height: 100%; /* Anpassung für das Bild */
+  object-fit: cover;
+}
+
+.faq-content {
+  padding: 20px;
+  flex: 1;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
 .faq-items {
-  max-width: 800px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Fragen pro Zeile */
+  gap: 20px;
 }
 
 .faq-item {
-  margin-bottom: 20px;
-}
-
-.faq-question {
-  background-color: #e3e3f2;
+  background-color: #dbdbee;
   border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  padding: 15px;
   cursor: pointer;
-  font-size: 1px; /* Angepasste Schriftgröße */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  font-size: 14px; /* Schriftgröße angepasst */
 }
 
-.faq-question:hover {
-  background-color: #babade;
+.faq-item:hover {
+  background-color: #e0e0f0;
   transform: translateY(-5px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .arrow {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   border-style: solid;
   border-width: 0 2px 2px 0;
-  transition: transform 0.3s ease;
   transform: rotate(45deg);
+  transition: transform 0.3s ease;
 }
 
 .arrow-down {
@@ -145,20 +161,45 @@ h2 {
 .faq-answer {
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
   margin-top: 10px;
-  transition: all 0.3s;
-  font-size: 20px;
+  font-size: 19px; /* Schriftgröße angepasst */
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s, transform 0.5s;
+.logo-box {
+  width: 35%; /* Breite des Logo-Bereichs */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-right: 70px;
+
 }
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-  transform: translateY(-20px);
+.logo-box img {
+  max-width: 100%;
+  height: auto;
 }
+
+@media (max-width: 1200px) {
+  .faq-items {
+    grid-template-columns: repeat(2, 1fr); /* Bei kleineren Bildschirmen 2 Fragen pro Zeile */
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-card {
+    width: 80%; /* Karte noch etwas breiter bei kleinen Bildschirmen */
+  }
+  
+  .logo-box {
+    width: 100%; /* Logo-Bereich 100% Breite bei kleinen Bildschirmen */
+  }
+  
+  .faq-items {
+    grid-template-columns: 1fr; /* Eine Frage pro Zeile bei sehr kleinen Bildschirmen */
+  }
+}
+
 </style>
-
