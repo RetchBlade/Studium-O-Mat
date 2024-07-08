@@ -36,5 +36,6 @@ app.use('/api/quiz', quizRoutes);
 const authRoutes = require('./Backend/routes/auth');
 app.use('/api/auth', authRoutes);
 
-const userRoutes = require('./Backend/routes/user'); // Neue Zeile für user.js
-app.use('/api/user', userRoutes); // Verwende '/api/user' als Basis-URL für User-Routen
+// User-Routen importieren
+const userRoutes = require('./Backend/routes/user');
+app.use('/api/user', userRoutes);
