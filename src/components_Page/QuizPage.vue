@@ -78,7 +78,6 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column; /* Damit die Quiz-Elemente vertikal zentriert sind */
-  margin-top: 100px; /* Abstand zum Header um 100px vergrößern */
 }
 
 .background-image {
@@ -101,7 +100,7 @@ export default {
 .header-image {
   width: 100%;
   height: 500px;
-  object-fit: cover;
+  object-fit: contain;
   margin-top: 50px; /* Abstand zum Header */
   margin-bottom: 50px; /* Abstand zu den Texten */
 }

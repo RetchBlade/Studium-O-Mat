@@ -209,12 +209,10 @@ export default {
     }
   }
 };
-</script>
-
-<style scoped>
+</script><style scoped>
 /* Styling für die Karte und deren Inhalte */
 .card {
-  width: 70%;
+  width: 70%; /* Erhöhte Breite der Karte um 10% */
   height: 70%;
   background: #f3f3f3;
   border-radius: 20px;
@@ -230,7 +228,7 @@ export default {
 
 .card-image {
   width: 100%;
-  height: 30%;
+  height: 25%;
   object-fit: cover;
   position: absolute;
   top: 0;
@@ -278,12 +276,12 @@ export default {
 
 .slider {
   width: 100%;
-  height: 30px;
-  border-radius: 5px;
+  height: 50px; /* Erhöhte Höhe des Sliders */
+  border-radius: 15px; /* Rundere Ecken des Sliders */
   background: transparent;
   outline: none;
   opacity: 0.7;
-  transition: opacity 0.2s;
+  transition: opacity 0.5s;
   z-index: 1;
 }
 
@@ -299,13 +297,15 @@ export default {
 input[type=range]::-webkit-slider-runnable-track {
   background: rgba(59,173,227,1);
   background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-  height: 2px;
+  height: 8px; /* Erhöhte Höhe des Sliders */
+  border-radius: 15px; /* Rundere Ecken des Slider-Tracks */
 }
 
 input[type=range]::-moz-range-track {
   background: rgba(59,173,227,1);
   background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-  height: 2px;
+  height: 8px; /* Erhöhte Höhe des Sliders */
+  border-radius: 15px; /* Rundere Ecken des Slider-Tracks */
 }
 
 input[type=range]:focus {
@@ -409,5 +409,39 @@ input[type=range]::-moz-range-thumb:active {
 .results li {
   font-size: 16px;
   margin-bottom: 5px;
+}
+button {
+  background-color: #34396E;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+button.next-question-button {
+  background-color: #34396E; /* Violett für den "Nächste Frage" Button */
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button.next-question-button:hover {
+  background-color: #726FB2; /* Hellviolett beim Hover */
+}
+
+button.next-question-button:disabled {
+  background-color: #CCCCCC; /* Grau, wenn der Button deaktiviert ist */
+  cursor: not-allowed;
 }
 </style>
