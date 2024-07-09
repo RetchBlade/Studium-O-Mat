@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // MongoDB Atlas Verbindung
-mongoose.connect('mongodb+srv://WebPioneers:studiomat@livable.joewjmc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://WebPioneers:studiomat@livable.joewjmc.mongodb.net/test')
   .then(() => console.log('MongoDB verbunden'))
   .catch(err => console.log(err));
 
