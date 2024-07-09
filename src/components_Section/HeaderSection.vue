@@ -8,8 +8,11 @@
           <!-- Anpassung für den Studium-O-Mat Link -->
           <span class="navbar-brand-text">Studium-O-Mat</span>
         </li>
+        
         <button class="navbar-toggler" type="button" @click="toggleMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon">
+            <i class="fas fa-bars"></i> <!-- Font Awesome Hamburger Icon -->
+          </span>
         </button>
         <div :class="['collapse', 'navbar-collapse', { 'show': isMenuOpen }]" id="navbarSupportedContent">
           <ul class="navbar-nav">
@@ -157,30 +160,8 @@ export default {
 }
 
 .navbar-toggler-icon {
-  background-color: #ffffff;
-  width: 25px;
-  height: 2px;
-  display: inline-block;
-  position: relative;
-}
-
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: inherit;
-  position: absolute;
-  left: 0;
-  transition: transform 0.2s ease;
-}
-
-.navbar-toggler-icon::before {
-  top: -8px;
-}
-
-.navbar-toggler-icon::after {
-  bottom: -8px;
+  font-size: 1.5rem;
+  color: #ffffff;
 }
 
 .navbar-toggler.open .navbar-toggler-icon::before {
@@ -199,7 +180,7 @@ export default {
     left: 0;
     width: 100%;
     max-height: calc(100vh - 70px);
-    background-color: #d3cbf7;
+    background: linear-gradient(to bottom, #d3cbf7, #898ec7);
     transition: transform 0.3s ease-in-out;
     z-index: 9999;
     transform: translateY(-100%);
@@ -211,6 +192,8 @@ export default {
     transform: translateY(0);
   }
 
+
+
   .navbar-nav {
     display: flex;
     flex-direction: column;
@@ -219,6 +202,7 @@ export default {
 
   .nav-item {
     margin: 10px 0;
+    font-weight: bold;
   }
 
   .user_option {

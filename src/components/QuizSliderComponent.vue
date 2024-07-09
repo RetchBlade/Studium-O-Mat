@@ -1,4 +1,7 @@
 <template>
+  <div class="background">
+    <img src="/@assets/background.jpg" alt="Background Image" class="background-image">
+  </div>
   <!-- Hauptcontainer der Karte -->
   <div class="card">
     <!-- Bannerbild -->
@@ -212,7 +215,26 @@ export default {
     }
   }
 };
-</script><style scoped>
+</script>
+
+<style scoped>
+/* Hintergrundbild auf die gesamte Seite ausdehnen */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Sicherstellen, dass der Hintergrund hinter der Karte liegt */
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Styling für die Karte und deren Inhalte */
 .card {
   width: 70%; /* Erhöhte Breite der Karte um 10% */
@@ -225,8 +247,9 @@ export default {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-top: 10px;
+  margin: auto; /* Zentrieren der Karte */
   position: relative;
+  z-index: 1; /* Sicherstellen, dass die Karte vor dem Hintergrund liegt */
 }
 
 .card-image {
@@ -413,6 +436,7 @@ input[type=range]::-moz-range-thumb:active {
   font-size: 16px;
   margin-bottom: 5px;
 }
+
 button {
   background-color: #34396E;
   border: none;
@@ -438,6 +462,7 @@ button.next-question-button {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
+
 button.next-question-button:hover {
   background-color: #726FB2; /* Hellviolett beim Hover */
 }
