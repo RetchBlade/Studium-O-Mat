@@ -29,7 +29,7 @@
         const data = Object.values(this.points);
   
         new Chart(ctx, {
-          type: 'pie',
+          type: 'polarArea',
           data: {
             labels: labels,
             datasets: [{
