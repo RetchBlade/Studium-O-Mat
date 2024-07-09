@@ -108,7 +108,7 @@
           <div style="width:100%;height:0;padding-bottom:83%;position:relative;">
             <iframe src="https://giphy.com/embed/Vuw9m5wXviFIQ" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
           </div>
-          <p><a href="https://giphy.com/gifs/rickroll-rick-astley-never-gonna-give-you-up-Vuw9m5wXviFIQ">Joke, sowas machen wir nicht!</a></p>
+          <p><a href="https://giphy.com/gifs/rickroll-rick-astley-never-gonna-give-you-up-Vuw9m5wXviFIQ">Gibt es noch nicht, bald Verfügbar</a></p>
         </div>
       </div>
     </div>
