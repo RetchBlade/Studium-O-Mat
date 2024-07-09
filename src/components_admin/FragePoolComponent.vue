@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- Integrate MongoDBTableViewer component -->
+    <!-- Intigrierte MongoDBTableViewer Komponente -->
     <MongoDBTableViewer
       title="Fragen"
       description="Hier können Sie die Fragen verwalten."
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import MongoDBTableViewer from './TableViewerComponent.vue'; // Adjust the path as per your project structure
+import MongoDBTableViewer from './TableViewerComponent.vue';
 
 export default {
   name: 'FragePool',
