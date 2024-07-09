@@ -126,7 +126,23 @@ position: relative;
 height: 600px;
 padding: 20px 0; /* Add padding to ensure the section has space */
 padding-top: 100px;
+
 }
+
+@media (max-width: 768px) {
+  .slider_section{
+    display: flex;
+    justify-content: space-around;
+    gap: 2px; /* Abstand zwischen den Cards */
+    flex-wrap: wrap; /* Umbruch bei kleineren Bildschirmen */
+  }
+  .slider_section .carousel_btn-container {
+    top: 105%; /* Alternative Positionierung nach oben für kleinere Bildschirme */
+    left: 10%;
+    align-self: flex-start; /* Verschiebt die Schaltflächen nach oben für kleinere Bildschirme */
+  }
+  
+} 
 
 .slider_section .row {
 display: flex;
@@ -142,7 +158,9 @@ color: #34396E;
 margin-top: 70px;
 min-height: 400px; /* Mindesthöhe statt feste Höhe */
 flex-direction: column;
-justify-content: space-between}
+justify-content: space-between
+
+}
 
 .slider_section .detail-box h1 {
 color: #34396E;
@@ -192,9 +210,7 @@ border-radius: 15px;
 }
 
 .slider_section .btn-container .btn-1:hover {
-background-color: #726FB2 ;
-border-color: #34396E;
-color: #34396E;
+background-color: #898ec7;
 }
 
 .study-test-btn {
@@ -203,7 +219,7 @@ color: #34396E;
 }
 
 .study-test-btn:hover {
-  color: #34396E !important; 
+  color: #ffffff !important; 
 }
 
 
@@ -239,11 +255,13 @@ background-size: 14px;
 background-position: center;
 background-color: #726FB2;
 margin: 2px; 
+transition: all 0.3s;
+
 }
 
 .slider_section .carousel_btn-container .carousel-control-prev:hover,
 .slider_section .carousel_btn-container .carousel-control-next:hover {
-background-color: #34396E;
+background-color: #898ec7;
 }
 
 .slider_section .carousel_btn-container .carousel-control-prev {

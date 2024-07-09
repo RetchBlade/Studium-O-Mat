@@ -1,4 +1,3 @@
-bearbeite mein login sodass das bild (image) doppelt so groß gezeigt wird 
 
 <template>
   <div class="modal" v-if="isVisible">
@@ -199,6 +198,8 @@ export default {
   position: relative;
   font-size: 0.9rem;
   margin-left: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
 }
 
 .text-body {
@@ -221,14 +222,16 @@ export default {
 button {
   background-color: #34396E;
   color: white;
-  border: none;
+  border-radius: 25px;
   padding: 0.5rem 0.5rem;
   cursor: pointer;
   margin-left: 20px;
+  
 }
 
 button:hover {
-  background-color: #726FB2;
+  background-color: #898ec7 ;
+  
 }
 
 .form-outline {
@@ -255,7 +258,7 @@ button:hover {
   left: 0;
   width: 2px;
   height: 2px;
-  background-color: #726FB2;
+  background-color: #898ec7;
   transition: width 0.3s ease-out;
 }
 </style>

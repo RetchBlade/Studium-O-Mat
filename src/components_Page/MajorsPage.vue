@@ -20,10 +20,11 @@
           <div class="card-content">
             <h2>Informatik</h2>
             <p>
-              Informatik ist die Wissenschaft von der systematischen Verarbeitung von Informationen, insbesondere der automatischen Verarbeitung mit Hilfe von Computern.
+              In diesem Studiengang lernen Sie, wie Computer funktionieren und wie man Software und Apps entwickelt. Sie beschäftigen sich mit spannenden Themen wie Künstliche Intelligenz,
+              Internetsicherheit und großen Datenmengen. Mit praktischen Projekten und moderner Technologie sind Sie bestens vorbereitet auf eine erfolgreiche Karriere in der IT.
             </p>
             <div class="card-links">
-                <a href="https://www.hochschule-bochum.de/informatik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
+              <a href="https://www.hochschule-bochum.de/informatik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
             </div>
           </div>
         </div>
@@ -36,12 +37,11 @@
           <div class="card-content">
             <h2>Wirtschaftsinformatik</h2>
             <p>
-              Wirtschaftsinformatik befasst sich mit der Entwicklung und Anwendung von Informations- und Kommunikationssystemen in Unternehmen.
+              Interessieren Sie sich sowohl für Computer als auch für Wirtschaft? Dann ist der Wirtschaftsinformatikstudiengang genau das Richtige für Sie! Hier lernen Sie, wie man mit Computern und Software Unternehmen effizienter macht. Sie erfahren, wie Geschäftsprozesse funktionieren und wie man mit Daten bessere Entscheidungen trifft. Dieser Studiengang bereitet Sie darauf vor, in verschiedenen Branchen wie Finanzen, Marketing oder IT zu arbeiten und dabei immer eine Brücke zwischen Technik und Geschäft zu schlagen.
             </p>
             <div class="card-links">
-            <a href="https://www.hochschule-bochum.de/wirtschaftsinformatik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
+              <a href="https://www.hochschule-bochum.de/wirtschaftsinformatik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
             </div>
-
           </div>
         </div>
   
@@ -52,11 +52,11 @@
           </div>
           <div class="card-content">
             <h2>Elektrotechnik</h2>
-            <p>
-              Elektrotechnik ist die Ingenieurwissenschaft, die sich mit der Erforschung und Anwendung der elektrischen Energie befasst.
+            <p style="font-size: 18px;">
+              Im Elektrotechnikstudiengang entdecken Sie die Welt der Elektrizität und Elektronik. Sie lernen, wie man elektrische Geräte und Systeme plant, entwickelt und verbessert. Dieser Studiengang öffnet Ihnen die Türen zu vielen spannenden Bereichen wie Energieversorgung, Kommunikationstechnik oder Automatisierung. Werden Sie ein Experte in einer Branche, die unser tägliches Leben mitgestaltet und voranbringt.
             </p>
             <div class="card-links">
-                <a href="https://www.hochschule-bochum.de/elektrotechnik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
+              <a href="https://www.hochschule-bochum.de/elektrotechnik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
             </div>
           </div>
         </div>
@@ -71,7 +71,6 @@
   </script>
   
   <style scoped>
-  
   .majors-page {
     font-family: 'Arial', sans-serif;
     padding: 20px;
@@ -86,6 +85,8 @@
   
   .container {
     max-width: 1200px;
+    max-height: 1200px;
+
     margin: 0 auto;
     padding: 0 20px;
   }
@@ -98,8 +99,8 @@
   }
   
   .card {
-    width: 600px; /* Zwei mal größer als vorher */
-    height: 900px; /* Automatische Höhe basierend auf Inhalt */
+    width: 500px; /* Zwei mal größer als vorher */
+    height: 1000px; /* Automatische Höhe basierend auf Inhalt */
     border-radius: 50px; /* Rundere Ecken der Karte */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten hinzufügen */
@@ -109,23 +110,24 @@
   .card:hover {
     transform: translateY(-15px); /* Karten beim Hover anheben */
   }
+  
   .card-img {
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.card-img img {
-  width: 600px; /* Automatisch anpassen */
-  height: 600px; /* Automatisch anpassen */
-  max-width: 100%;
-  max-height: fit-content;
-}
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .card-img img {
+    width: 600px; /* Automatisch anpassen */
+    height: 500px; /* Automatisch anpassen */
+    max-width: 100%;
+    max-height: fit-content;
+  }
   
   .card-content {
     padding: 40px;
@@ -142,24 +144,24 @@
   }
   
   .card-content p {
-    font-size: 1rem;
+    font-size: 1.125rem; /* 18px Schriftgröße für den Paragraphen */
     color: #666;
     line-height: 1.5;
     flex: 1; /* Flexibles Layout für den Textinhalt */
   }
   
   .card-links {
-  margin-top: 10px;
-}
-
-.card-links a {
-  color: #34396E;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.card-links a:hover {
-  text-decoration: underline;
-}
+    margin-top: 10px;
+  }
+  
+  .card-links a {
+    color: #34396E;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .card-links a:hover {
+    text-decoration: underline;
+  }
   </style>
   

@@ -72,7 +72,7 @@ export default {
   width: 100%;
   z-index: 9999;
   overflow-x: hidden;
-  background: linear-gradient(to right, #34396E, #726FB2);
+  background: linear-gradient(to right, #34396E, #898ec7);
   padding: 10px 0;
 }
 
@@ -100,7 +100,7 @@ export default {
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link:hover {
-  color: #9d97d8; /* Farbwechsel bei Hover */
+  color:#898ec7; /* Farbwechsel bei Hover */
 }
 
 /* Anpassung für den Studium-O-Mat Link */
@@ -125,7 +125,7 @@ export default {
 }
 
 .login-button:hover {
-  background-color: #766faf;
+  background-color: #898ec7;
   color: white;
 }
 
