@@ -85,13 +85,16 @@ export default {
 </script>
 
 <style scoped>
+
 .faq-section {
+  
   display: flex;
+  flex-wrap: wrap; /* Zeilenumbruch für kleinere Bildschirme */
   justify-content: space-between; /* Platz zwischen Fragen-Karten und Logo */
   align-items: flex-start; /* Oben ausrichten */
-  padding: 40px 0;
-  padding-left: 90px;
+  padding: 40px 20px; /* Anpassung des Paddings für kleinere Bildschirme */
   margin-top: 90px;
+ 
 }
 
 .faq-card {
@@ -103,6 +106,9 @@ export default {
   flex-direction: column;
   overflow: hidden;
   padding-left: 20px;
+  padding-bottom: 80px;
+
+  
 }
 
 
@@ -121,6 +127,8 @@ h2 {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 40px;
+  margin-top: 10px;
+
 }
 
 .faq-items {
@@ -164,16 +172,16 @@ h2 {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   padding: 15px;
   margin-top: 10px;
-  font-size: 19px; /* Schriftgröße angepasst */
+  font-size: 14px; /* Schriftgröße angepasst */
 }
 
 .logo-box {
-  width: 35%; /* Breite des Logo-Bereichs */
+  width: 40%; /* Breite des Logo-Bereichs */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  padding-right: 70px;
+  padding-right: 400px;
 
 }
 
@@ -192,11 +200,10 @@ h2 {
   .faq-card {
     width: 80%; /* Karte noch etwas breiter bei kleinen Bildschirmen */
   }
-  
-  .logo-box {
-    width: 100%; /* Logo-Bereich 100% Breite bei kleinen Bildschirmen */
+   
+.logo-box {
+    display: none !important; /* Bild auf kleinen Bildschirmen ausblenden */
   }
-  
   .faq-items {
     grid-template-columns: 1fr; /* Eine Frage pro Zeile bei sehr kleinen Bildschirmen */
   }
