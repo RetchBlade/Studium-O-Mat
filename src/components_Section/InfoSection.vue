@@ -30,7 +30,7 @@
                     <a class="nav-link"><router-link to='/about'>Über uns</router-link> </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><router-link to='/studiumOMat'>Studium OMat</router-link></a>
+                    <a class="nav-link"><router-link to='/studiumOMat'>Studium-O-Mat</router-link></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"><router-link to='/quiz'>Studienwahltest</router-link></a>
@@ -41,11 +41,7 @@
                 </ul>
               </div>
             </div>
-            <!-- Informationstext -->
-            <div class="col-md-3 col-lg-2 offset-lg-1">
-              <h5>Information</h5>
-              <p>{{ informationContent }}</p>
-            </div>
+            
             <!-- Newsletter-Abonnement-Formular -->
             <div class="col-md-3 offset-lg-1">
               <div class="info_form">
@@ -108,7 +104,7 @@
           <div style="width:100%;height:0;padding-bottom:83%;position:relative;">
             <iframe src="https://giphy.com/embed/Vuw9m5wXviFIQ" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
           </div>
-          <p><a href="https://giphy.com/gifs/rickroll-rick-astley-never-gonna-give-you-up-Vuw9m5wXviFIQ">Joke, sowas machen wir nicht!</a></p>
+          <p><a href="https://giphy.com/gifs/rickroll-rick-astley-never-gonna-give-you-up-Vuw9m5wXviFIQ">Gibt es noch nicht, bald Verfügbar</a></p>
         </div>
       </div>
     </div>
@@ -123,7 +119,6 @@ export default {
       // Daten für die Firmeninformationen
       companyName: 'Web Pioneers',
       logoImage: require('@/assets/logo_ohneHintergrund.png'),
-      informationContent: 'Lesbarer Inhalt einer Seite beim Betrachten des Layouts',
       email: 'Web-Pioneers@gmail.com',
       phoneNumber: 'Rufen Sie +015 1111111111 an',
       currentTab: 'Home',
