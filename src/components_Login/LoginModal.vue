@@ -1,14 +1,14 @@
-
 <template>
   <div class="modal" v-if="isVisible">
     <div class="modal-content">
       <span class="close-button" @click="closeModal">&times;</span>
       <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-md-9 col-lg-6 col-xl-5">
-            <img src="@/assets/login.png"
-              class="img-fluid" alt="Sample image">
+          <!-- Bild auf kleinen Bildschirmen ausblenden -->
+          <div class="col-md-9 col-lg-6 col-xl-5 d-none d-md-block">
+            <img src="@/assets/login.png" class="img-fluid" alt="Sample image">
           </div>
+          <!-- Formular und Text auf kleinen Bildschirmen -->
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form v-if="!isRegistering" @submit.prevent="login">
               <!-- Email input -->
@@ -17,16 +17,14 @@
                 <input type="email" v-model="username" class="form-control form-control-lg"
                   placeholder="Adresse eingeben" required />
               </div>
-
               <!-- Password input -->
-              <div class="form-outline mb-3">               
+              <div class="form-outline mb-3">
                 <label class="form-label">Passwort</label>
                 <input type="password" v-model="password" class="form-control form-control-lg"
                   placeholder="Passwort" required />
               </div>
-
               <div class="d-flex justify-content-between align-items-center">
-                <!-- Checkbox -->
+                <!-- Checkbox und Passwort vergessen Link -->
                 <div class="form-check mb-0">
                   <input class="form-check-input me-2" type="checkbox" v-model="rememberMe" />
                   <label class="form-check-label">
@@ -35,10 +33,10 @@
                 </div>
                 <a href="#!" class="text-body">Passwort vergessen?</a>
               </div>
-
+              <!-- Login-Button und Link zur Registrierung -->
               <div class="text-center text-lg-start mt-4 pt-2">
                 <button type="submit" class="btn btn-primary btn-lg"
-                  style="width: 200px; padding-left: 2.5rem; padding-right: 2.5rem;"
+                  style="width: 100%; max-width: 200px; padding-left: 2.5rem; padding-right: 2.5rem;"
                   @mouseover="startMotion" @mouseleave="endMotion">Login
                   <div class="motion-line" v-show="motionActive"></div>
                 </button>
@@ -46,7 +44,7 @@
                     class="link-danger" @click.prevent="showRegister">Registrieren</a></p>
               </div>
             </form>
-
+            <!-- Registrierungsformular -->
             <form v-else @submit.prevent="register">
               <!-- Email input -->
               <div class="form-outline mb-4">
@@ -54,24 +52,22 @@
                 <input type="email" v-model="username" class="form-control form-control-lg"
                   placeholder="Adresse eingeben" required />
               </div>
-
               <!-- Password input -->
-              <div class="form-outline mb-3">               
+              <div class="form-outline mb-3">
                 <label class="form-label">Passwort</label>
                 <input type="password" v-model="password" class="form-control form-control-lg"
                   placeholder="Passwort" required />
               </div>
-
               <!-- Confirm Password input -->
-              <div class="form-outline mb-3">               
+              <div class="form-outline mb-3">
                 <label class="form-label">Passwort bestätigen</label>
                 <input type="password" v-model="confirmPassword" class="form-control form-control-lg"
                   placeholder="Passwort bestätigen" required />
               </div>
-
+              <!-- Registrierungs-Button und Link zum Login -->
               <div class="text-center text-lg-start mt-4 pt-2">
                 <button type="submit" class="btn btn-primary btn-lg"
-                  style="width: 200px; padding-left: 2.5rem; padding-right: 2.5rem;"
+                  style="width: 100%; max-width: 200px; padding-left: 2.5rem; padding-right: 2.5rem;"
                   @mouseover="startMotion" @mouseleave="endMotion">Registrieren
                   <div class="motion-line" v-show="motionActive"></div>
                 </button>
@@ -79,7 +75,6 @@
                     class="link-danger" @click.prevent="showLogin">Login</a></p>
               </div>
             </form>
-
           </div>
         </div>
       </div>
@@ -105,27 +100,26 @@ export default {
       this.$emit('close-modal');
     },
     async login() {
-  try {
-    const response = await fetch('http://localhost:5000/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: this.username, password: this.password })
-    });
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: this.username, password: this.password })
+        });
 
-    if (!response.ok) {
-      const errorMessage = await response.text();
-      alert(errorMessage);
-      return;
-    }
+        if (!response.ok) {
+          const errorMessage = await response.text();
+          alert(errorMessage);
+          return;
+        }
 
-    const data = await response.json();
-    console.log('Login erfolgreich', data);
-    this.closeModal();
-  } catch (error) {
-    console.error('Fehler beim Login:', error);
-  }
-},
-
+        const data = await response.json();
+        console.log('Login erfolgreich', data);
+        this.closeModal();
+      } catch (error) {
+        console.error('Fehler beim Login:', error);
+      }
+    },
     async register() {
       if (this.password !== this.confirmPassword) {
         alert('Passwörter stimmen nicht überein.');
@@ -170,13 +164,13 @@ export default {
 
 <style scoped>
 .img-fluid {
-  max-height: 200%;
-  max-width:300%;
-  padding-inline-end:  400px;
+  max-width: 100%; /* Bildbreite anpassen */
+  height: auto; /* Bildhöhe automatisch */
 }
+
 .modal {
   position: fixed;
-  top: 0;
+  top: 10%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -191,15 +185,13 @@ export default {
   background-color: #e5e5f8;
   padding: 2rem;
   border-radius: 10px;
-  width: 1000px; 
-  max-width: 800px; 
-  height: 500px;
+  width: 90%; /* Vollständige Breite auf allen Bildschirmgrößen */
+  max-width: 900px; /* Maximalbreite begrenzen */
   text-align: center;
   position: relative;
   font-size: 0.9rem;
-  margin-left: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
+  margin: 10px; /* Abstand hinzufügen */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .text-body {
@@ -225,13 +217,11 @@ button {
   border-radius: 25px;
   padding: 0.5rem 0.5rem;
   cursor: pointer;
-  margin-left: 20px;
-  
+  margin-top: 10px; /* Abstand zum oberen Element */
 }
 
 button:hover {
-  background-color: #898ec7 ;
-  
+  background-color: #898ec7;
 }
 
 .form-outline {
@@ -243,7 +233,7 @@ button:hover {
   border-radius: 20px;
   padding: 1.3rem;
   font-size: 0.9rem;
-  width: 120%;
+  width: 100%; /* Volle Breite für alle Bildschirmgrößen */
 }
 
 .form-label {
@@ -260,5 +250,15 @@ button:hover {
   height: 2px;
   background-color: #898ec7;
   transition: width 0.3s ease-out;
+}
+
+@media (max-width: 767.98px) {
+  .modal-content {
+    padding: 1rem; /* Padding reduzieren für kleinere Bildschirme */
+  }
+
+  .d-none {
+    display: none !important; /* Bild auf kleinen Bildschirmen ausblenden */
+  }
 }
 </style>
