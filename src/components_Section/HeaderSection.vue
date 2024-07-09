@@ -6,7 +6,7 @@
           <img src="@/assets/logo_ohneHintergrund.png" alt="Logo" class="logo">
           
           <!-- Anpassung für den Studium-O-Mat Link -->
-          <span class="navbar-brand-text"><RouterLink to="/" class="nav-link study-link">Studium-O-Mat</RouterLink></span>
+          <span class="navbar-brand-text">Studium-O-Mat</span>
         </li>
         <button class="navbar-toggler" type="button" @click="toggleMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -82,7 +82,7 @@ export default {
 }
 
 .logo {
-  width: 50px;
+  width: 80px;
   margin-right: 10px;
 }
 
