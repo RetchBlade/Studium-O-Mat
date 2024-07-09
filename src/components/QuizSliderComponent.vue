@@ -14,7 +14,7 @@
           <!-- Anzeige der aktuellen Frage -->
           <h3>{{ questions[currentQuestionIndex].frage }}</h3>
           <!-- Button für die nächste Frage oder um die Ergebnisse anzuzeigen -->
-          <button @click="loadNextQuestion" :able="isLastQuestion">{{ isLastQuestion ? 'Ergebnis anzeigen' : 'Nächste Frage' }}</button>
+          <button @click="loadNextQuestion" :disabled="!canProceed">{{ isLastQuestion ? 'Ergebnis anzeigen' : 'Nächste Frage' }}</button>
         </div>
       </div>
       <!-- Schieberegler zur Bewertung der Frage, wenn es Fragen gibt und die Ergebnisse noch nicht angezeigt werden -->
@@ -49,7 +49,7 @@
         <!-- Ergebnisdiagramm-Komponente -->
         <result-chart :points="points"></result-chart>
         <!-- Button zum Neustart des Quiz -->
-        <button @click="resetQuiz">Zurück zum Start</button>
+        <button @click="resetQuiz">Test wiederholen</button>
       </div>
     </div>
   </div>
@@ -100,9 +100,12 @@ export default {
           return 'purple';
       }
     },
-    // Überprüfung, ob die aktuelle Frage die letzte Frage ist
     isLastQuestion() {
       return this.currentQuestionIndex >= this.questions.length - 1;
+    },
+    // Überprüfung, ob der Benutzer zur nächsten Frage fortfahren kann
+    canProceed() {
+      return this.currentState !== null;
     }
   },
   created() {
@@ -435,7 +438,6 @@ button.next-question-button {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-
 button.next-question-button:hover {
   background-color: #726FB2; /* Hellviolett beim Hover */
 }

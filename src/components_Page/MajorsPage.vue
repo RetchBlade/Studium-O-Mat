@@ -23,7 +23,7 @@
               Informatik ist die Wissenschaft von der systematischen Verarbeitung von Informationen, insbesondere der automatischen Verarbeitung mit Hilfe von Computern.
             </p>
             <div class="card-links">
-              <a href="#">Mehr erfahren</a>
+                <a href="https://www.hochschule-bochum.de/informatik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
             </div>
           </div>
         </div>
@@ -39,8 +39,9 @@
               Wirtschaftsinformatik befasst sich mit der Entwicklung und Anwendung von Informations- und Kommunikationssystemen in Unternehmen.
             </p>
             <div class="card-links">
-              <a href="#">Mehr erfahren</a>
+            <a href="https://www.hochschule-bochum.de/wirtschaftsinformatik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
             </div>
+
           </div>
         </div>
   
@@ -55,7 +56,7 @@
               Elektrotechnik ist die Ingenieurwissenschaft, die sich mit der Erforschung und Anwendung der elektrischen Energie befasst.
             </p>
             <div class="card-links">
-              <a href="#">Mehr erfahren</a>
+                <a href="https://www.hochschule-bochum.de/elektrotechnik/" target="_blank" rel="noopener noreferrer" class="external-link">Mehr erfahren</a>
             </div>
           </div>
         </div>
