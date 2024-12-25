@@ -9,8 +9,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
-// MongoDB Atlas Verbindung
-mongoose.connect('mongodb+srv://WebPioneers:studiomat@livable.joewjmc.mongodb.net/test')
+// MongoDB Atlas Verbindung hier muss ein eigenes verbidung ausgebaut werden.
+mongoose.connect('mongodb+srv://xxx:xxx@xxx.joewjmc.mongodb.net/test')
   .then(() => console.log('MongoDB verbunden'))
   .catch(err => console.log(err));
 
