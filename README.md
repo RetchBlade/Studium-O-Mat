@@ -3,7 +3,7 @@ Projektidee: Studienfach-Finder aka Studium-o-mat (inspiriert vom Wahl-O-Mat)
 Ein interaktives Tool zur Studienfachwahl. Nutzer beantworten Fragen zu Interessen und Fähigkeiten, die im Admin-Modus individuell erstellt und angepasst werden können.
 Basierend auf einem Punktesystem wird ein passendes Studienfach empfohlen. Ideal zur einfachen und transparenten Entscheidungsfindung.
 
-# studie-o-mat-vue
+# Studium-o-Mat-vue
 ## Project setup
 ```
 npm install
